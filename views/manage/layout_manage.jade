@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/build/build.manage.css')
+		link(rel="icon" type="image/png" href="/favicon.png")
+		script(src="/build/build.manage.js")
+	body
+		.a-notifier.a-hide-notify
+			.a-notifier-content
+				i.a-close-notifier
+				p.a-texts-err-to-notify This is error message get to Notifier
+		block content

@@ -1,0 +1,11 @@
+{
+  "name": "chechelyka_server",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "socket.io": "^1.5.0"
+  },
+  "scripts": {
+    "start": "node socket.js"
+  }
+}

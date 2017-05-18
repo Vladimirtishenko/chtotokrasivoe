@@ -1,0 +1,263 @@
+extends layout
+
+block content
+	section.a-main.a-privat-main.a-flexed-block-main
+		.a-flexed-block-main__item
+			include header.jade
+			.a-privat-block-top
+				.a-general-goods.__in_flex_wrap.__background_left
+					span.a-triangle__pseudo
+					- if (data && data.length > 0) 
+						h1.a-head-font-left-side.__in_flex Корзина
+						- var allcount = 0;
+						form.a-data-order
+							each item, i in data
+								- allcount += item.finalePrice * item.count
+								.a-privat-table
+									.a-privat-table__image_block
+										- var img = decodeURIComponent(item.product.src)
+										img(src=img, alt="")
+										- var title = decodeURIComponent(item.product.title)
+										- var color = decodeURIComponent(item.product.color)
+										- var size = decodeURIComponent(item.product.size)
+										- var art = decodeURIComponent(item.product.art)
+										.a-goods-description
+											p
+												| #{title}
+											p
+												span.a-hidden-block__description-link
+													i Артикул: 
+														span=art
+												span.a-hidden-block__description-link
+													i Размер: 
+														span=size
+												span.a-hidden-block__description-link
+													i Цвет: 
+														span=color
+												
+									.a-privat-table__count_and_price
+										p Количество
+											span #{item.count} 
+												| шт.
+										p Стоимость
+											span #{item.finalePrice * item.count}
+												| руб.
+									input(type="hidden" data-count=item.count 	data-price=item.finalePrice * item.count data-title=title data-size=size data-image=img data-color=color data-art=art)
+						.a-privat-price-to-change
+							.a-privat-table__all-price
+								p.a-privat-table__all-price_text Общая стоимость:
+								p.a-privat-table__all-price_price #{allcount} 
+									| руб.
+							.a-privat-table__all-price
+								button.a-button-black.a-button-to-submits-order(data-attr="order")
+									| Оформить заказ
+					- else
+						h1.a-head-font-left-side.__in_flex Нет заказов
+			- if (ordersUnpaid)
+				h1.a-head-font-left-side Не оплаченные заказы
+				each orderBase in ordersUnpaid
+					.a-privat-table_bought
+						.a-privat-table_bought__number
+							- var date = orderBase.date.getDate() + "/" + orderBase.date.getMonth() + "/" + orderBase.date.getFullYear();
+							p 
+								span Заказ 
+								| №
+								| #{orderBase.orderNumber} 
+								span от 
+								| #{date} 
+							p На сумму: 
+								span #{orderBase.priceCommon} 
+									| руб.
+						-var ob = orderBase.goods;
+						-for(var prop in ob)
+							.a-privat-table.a-privat-table__bought
+								.a-privat-table__image_block
+									img(src=ob[prop].image, alt="")
+									.a-goods-description
+										p 
+											| #{ob[prop].title}
+										p
+											span.a-hidden-block__description-link
+												i Артикул: 
+													span=ob[prop].art
+											span.a-hidden-block__description-link
+												i Размер: 
+													span=ob[prop].size
+											span.a-hidden-block__description-link
+												i Цвет: 
+													span=ob[prop].color
+								.a-privat-table__count_and_price
+									p Количество
+										span #{ob[prop].count}
+											| шт.
+									p Стоимость
+										span #{ob[prop].price}
+											| руб.
+				
+
+			- if(ordersPaid)
+				h1.a-head-font-left-side Оплаченные заказы
+				each itemP in ordersPaid
+					.a-privat-table_bought
+						.a-privat-table_bought__number
+							- var date = itemP.date.getDate() + "/" + itemP.date.getMonth() + "/" + itemP.date.getFullYear();
+							p 
+								span Заказ 
+								| №
+								| #{itemP.orderNumber} 
+								span от 
+								| #{date} 
+							p На сумму: 
+								span #{itemP.priceCommon} 
+									| руб.
+						-var ob = itemP.goods;
+						-for(var prop in ob)
+							.a-privat-table.a-privat-table__bought
+								.a-privat-table__image_block
+									img(src=ob[prop].image, alt="")
+									.a-goods-description
+										p 
+											| #{ob[prop].title}
+										p
+												span.a-hidden-block__description-link
+													i Артикул: 
+														span=ob[prop].art
+												span.a-hidden-block__description-link
+													i Размер: 
+														span=ob[prop].size
+												span.a-hidden-block__description-link
+													i Цвет: 
+														span=ob[prop].color
+								.a-privat-table__count_and_price
+									p Количество
+										span #{ob[prop].count}
+											| шт.
+									p Стоимость
+										span #{ob[prop].price}
+											| руб.
+
+			- if(ordersProcessed)
+				h1.a-head-font-left-side Обработанные заказы
+				each itemC in ordersProcessed
+					.a-privat-table_bought
+						.a-privat-table_bought__number
+							- var date = itemC.date.getDate() + "/" + itemC.date.getMonth() + "/" + itemC.date.getFullYear();
+							p 
+								span Заказ 
+								| №
+								| #{itemC.orderNumber} 
+								span от 
+								| #{date} 
+							p На сумму: 
+								span #{itemC.priceCommon} 
+									| руб.
+						-var ob = itemC.goods;
+						-for(var prop in ob)
+							.a-privat-table.a-privat-table__bought
+								.a-privat-table__image_block
+									img(src=ob[prop].image, alt="")
+									.a-goods-description
+										p
+											| #{ob[prop].title}
+										p
+											span.a-hidden-block__description-link
+												i Артикул: 
+													span=ob[prop].art
+											span.a-hidden-block__description-link
+												i Размер: 
+													span=ob[prop].size
+											span.a-hidden-block__description-link
+												i Цвет: 
+													span=ob[prop].color
+								.a-privat-table__count_and_price
+									p Количество
+										span #{ob[prop].count}
+											| шт.
+									p Стоимость
+										span #{ob[prop].price}
+											| руб.
+
+			
+			- if(ordersSuccess)
+				h1.a-head-font-left-side Выполненные заказы
+				each itemC in ordersSuccess
+					.a-privat-table_bought
+						.a-privat-table_bought__number
+							- var date = itemC.date.getDate() + "/" + itemC.date.getMonth() + "/" + itemC.date.getFullYear();
+							p 
+								span Заказ 
+								| №
+								| #{itemC.orderNumber} 
+								span от 
+								| #{date} 
+							p На сумму: 
+								span #{itemC.priceCommon} 
+									| руб.
+						-var ob = itemC.goods;
+						-for(var prop in ob)
+							.a-privat-table.a-privat-table__bought
+								.a-privat-table__image_block
+									img(src=ob[prop].image, alt="")
+									.a-goods-description
+										p
+											| #{ob[prop].title}
+										p
+											span.a-hidden-block__description-link
+												i Артикул: 
+													span=ob[prop].art
+											span.a-hidden-block__description-link
+												i Размер: 
+													span=ob[prop].size
+											span.a-hidden-block__description-link
+												i Цвет: 
+													span=ob[prop].color
+								.a-privat-table__count_and_price
+									p Количество
+										span #{ob[prop].count}
+											| шт.
+									p Стоимость
+										span #{ob[prop].price}
+											| руб.
+
+
+			- if(ordersCancel)
+				h1.a-head-font-left-side Отмененные заказы
+				each itemC in ordersCancel
+					.a-privat-table_bought
+						.a-privat-table_bought__number
+							- var date = itemC.date.getDate() + "/" + itemC.date.getMonth() + "/" + itemC.date.getFullYear();
+							p 
+								span Заказ 
+								| №
+								| #{itemC.orderNumber} 
+								span от 
+								| #{date} 
+							p На сумму: 
+								span #{itemC.priceCommon} 
+									| руб.
+						-var ob = itemC.goods;
+						-for(var prop in ob)
+							.a-privat-table.a-privat-table__bought
+								.a-privat-table__image_block
+									img(src=ob[prop].image, alt="")
+									.a-goods-description
+										p
+											| #{ob[prop].title}
+										p
+											span.a-hidden-block__description-link
+												i Артикул: 
+													span=ob[prop].art
+											span.a-hidden-block__description-link
+												i Размер: 
+													span=ob[prop].size
+											span.a-hidden-block__description-link
+												i Цвет: 
+													span=ob[prop].color
+								.a-privat-table__count_and_price
+									p Количество
+										span #{ob[prop].count}
+											| шт.
+									p Стоимость
+										span #{ob[prop].price}
+											| руб.
+		include footer.jade

@@ -1,0 +1,38 @@
+header.a-head
+	.a-parth-to-center
+		input(type="checkbox" id="a-menu-item-check" class="a-menu-item-check")
+		label(class="a-button-mobile-menu" for="a-menu-item-check")
+		.a-menu-item
+			a(class="a-link-item" href="/") Аукционы
+			a(class="a-link-item" href="/goods") Все лоты
+			a(class="a-link-item button-modal" href="#" data-attr="rules") Правила
+			a(class="a-link-item" href="/comments") Отзывы
+			
+			if (!sessionUser)
+				a(class="a-link-item button-modal __login_action" href="#" data-attr="enter") Войти
+			else
+				a(class="a-link-item" href="/privat") Личный кабинет
+
+		.a-side-logo
+			a(class="a-link-logo" href="/")
+				img(src="/img/logo.png", alt="")
+			.a-auction-info-text
+				span=auctions_info_sliced
+				span.a-tooltip-info !{auctions_info && auctions_info.text}
+		.a-side-basket
+			a(href=(sessionUser ? "/privat" : "#") class="a-side-backet__image")
+				- var price = bucketPrice || 0;
+				- var count = bucketCount || 0;
+				span.a-side-backet__count=count 
+					| шт.
+				span.a-side-backet__price
+					if (price == 0)
+						| Корзина 
+						br 
+						| пуста
+					else 
+						| #{price}
+						| руб.
+	.a-time-to-start(data-time=date)
+		p До начала аукциона осталось: 
+		i.a-replaced-time-container Дата загружается...

@@ -1,0 +1,37 @@
+extends layout_manage
+
+block content
+	.che-items-print-controls
+		button.che-print-button(onclick="window.print()")
+			| Распечатать страницу 
+
+	h1.che-items-print-heading Не проданные товары
+
+	table.che-print-items
+		tr.pagebreak
+			th
+				p Артикл
+			th
+				p Наименование
+			th 
+				p Колличество не проданных
+			th 
+				p Цвет
+			th
+				p Размер
+		each item in data
+			- var atr = decodeURIComponent(item.art);
+			- var title = decodeURIComponent(item.title);
+			- var color = decodeURIComponent(item.color);
+			- var size = decodeURIComponent(item.size);
+			tr.pagebreak
+				td 
+					p=atr
+				td
+					p=title
+				td
+					p=item.unsoldCount
+				td
+					p=color
+				td
+					p=size

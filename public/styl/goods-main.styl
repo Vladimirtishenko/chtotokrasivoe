@@ -1,0 +1,263 @@
+.a-backgroung-general-goods
+	width 100%
+	background greys
+	min-height 600px
+	position relative
+
+.a-general-goods
+	width w
+	margin 0 auto
+	display flex
+	padding 40px 0px 40px 75px
+	position relative
+	&:before
+		position absolute
+		width 1000px
+		right 100%
+		background #fff
+		height 100%
+		top 0
+		content ""
+	&:after
+		position absolute
+		width 300px
+		height 500px
+		background url('../img/sprite.png')
+		content ""
+		bottom -235px
+		right -80px
+
+.a-type-to
+	display flex 
+	align-items center
+
+.a-add-rate
+	padding-bottom 10px
+	color reds
+	font-family HelveticaThin
+	font-size 20px
+	display inline-block
+
+.a-type-to-count
+	padding 20.5px 5px 20.5px 20px
+	width 75px
+	text-align center
+	font-family HelveticaThin
+	font-size 20px
+	border 1px solid #15a399
+	margin-left 23px
+	position relative
+	background rgba(255,255,255, .5)
+	z-index 9
+	&:focus, &:active
+		outline none
+		border 1px solid #7b7b7b
+
+.a-type-to-count-name
+	display inline-block
+	font-family HelveticaThin
+	padding 0 10px
+	font-size 20px
+
+.a-general-goods__description
+	padding 30px 0 0 65px
+
+.a-general-goods__description_in-warehouse
+	color fontg
+	font-family HelveticaThin
+	font-size 18px
+	
+.a-general-goods__description_in-warehouse span
+	color reds
+	font-size 25px
+
+.a-general-goods__description_title
+	padding 15px 0 15px 0
+	font-size 35px
+	font-weight 400
+	font-family HelveticaLight
+	line-height 40px
+
+.a-general-goods__description_description
+	padding 4px 0 15px 0
+	color fontg
+	font-family HelveticaRoman
+	font-size 14px
+	line-height 18px
+	
+.a-general-goods__description_info_part
+	width 100%
+
+.a-general-goods__description_info
+	padding 0 0 20px 0
+	font-family HelveticaRoman
+
+.a-general-goods__description_info_part-link 
+	color green
+	font-family HelveticaRoman
+	padding 5px 0
+	margin 0 20px 0 0
+	display inline-block
+	position relative
+
+.a-general-goods__description_info_part-link i 
+	font-size 14px
+	transition all .2s ease-out
+	border-bottom 1px dotted rgba(21, 163, 153, 1)
+	display inline-block
+	padding 1px 0px
+	margin-right 10px
+	font-style normal
+	position relative
+	
+.a-general-goods__description_info_part-link span 
+	font-size 16px
+	font-family HelveticaThin
+	color fontg
+	
+	
+.a-general-goods__description_price_retail, .a-general-goods__time_to_end__timer
+	font-family HelveticaRoman
+	color fontg
+	font-size 14px
+	position relative
+	z-index 9
+	
+.a-general-goods__time_to_end__timer
+	padding 20px 0 0
+	
+.a-general-goods__time_to_end__timer span 
+	color reds
+	font-size 22px
+	font-family HelveticaThin
+	
+.a-general-goods__description_price_retail span
+	color #000
+	padding-left 10px
+	display inline-block
+	
+.a-general-goods__description_price_now
+	padding 10px 0 10px
+	font-size 65px
+	color reds
+	font-family HelveticaThin
+
+.a-general-goods__description_price_now span
+	font-size 50px
+
+.a-general-goods__description_rates_button
+	margin 15px 0 0 0
+	position relative
+	z-index 1
+	display flex 
+	justify-content space-between
+
+.a-general-goods__image
+	position relative
+	&:before 
+		content ""
+		background url('../img/sprite.png')
+		left -64px
+		top 263px
+		width 97px
+		height 90px
+		z-index 1
+		position absolute
+		background-position -472px 90px
+
+.a-img-scale
+	width 330px
+	box-shadow 0px 0px 66px 5px rgba(0, 0, 0, 0.2)
+	padding 0
+	overflow hidden
+	position relative
+
+.a-img-scale img
+	width 100%
+	display inherit
+
+.a-general-goods__time_to_end
+	display flex
+	align-items center
+	flex-wrap wrap
+
+.a-general-goods__time_to_end p
+	padding 20px 0 0 0
+	font-size 16px
+	font-family HelveticaThin
+	width 100%
+	
+.a-general-number__this_main
+	position absolute
+	font-size 35px
+	top -10px
+	left 40px
+	font-family HelveticaLight
+	z-index 9
+	
+.a-info-about-rates
+	color fontg
+	font-family HelveticaThin
+	padding-top 17px
+	position relative 
+	z-index 1
+
+@media screen and (max-width: 1024px)
+	.a-general-goods
+		width 100%
+		align-items flex-start
+		justify-content center
+		padding 70px 40px;
+	
+	.a-general-goods__image
+		position absolute
+		right 60px
+		
+	.a-general-goods__description
+		width 100%
+		text-align left
+		padding 30px 20px
+		
+	.a-general-goods__description_description, .a-general-goods__description_info
+		width 400px
+			
+@media screen and (max-width: 800px)
+	.a-general-goods
+		width 100%
+		align-items flex-start
+		justify-content center
+		flex-wrap wrap 
+		padding 70px 0
+		
+	.a-general-goods__image
+		position relative
+		right inherit
+		
+	.a-general-goods__description
+		width 80%
+		text-align center
+		padding 30px 0
+		
+	.a-general-goods__description_description, .a-general-goods__description_info
+		width 100%
+		
+	.a-for-mobile-absolute
+		position static
+
+	.a-general-goods__time_to_end p
+		margin-top 20px
+		display block
+		
+	.a-general-goods__time_to_end
+		flex-wrap wrap
+		justify-content center
+		
+	.a-general-goods__description_rates_button .a-button-white
+		margin 5px 0px
+		width 45%
+		
+	.a-general-goods__description_rates_button
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		

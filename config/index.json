@@ -1,0 +1,19 @@
+{
+	"port": 3090,
+	"mongoose": {
+		"uri": "mongodb://localhost/checheluka"
+	},
+	"db": {
+		"db": "checheluka",
+		"host": "localhost",
+		"port": "27017",
+		"url": "mongodb://localhost/checheluka"
+	},
+	"message": {
+		"email": "sale@chechelyka-auction.com",
+		"smtp": "chechelyka-auction.com",
+		"pass": "Yazq_836"
+	},
+	"secret": "secret_key1123sdasjfasu",
+	"secret_keys": "qwedsazxc123"
+}

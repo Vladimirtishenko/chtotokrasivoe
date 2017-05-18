@@ -1,0 +1,31 @@
+extends layout_manage
+
+block content
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin
+		h1.a-head-font-left-side Пользователи
+		view.a-all-goods-table
+			a(class="a-csv-exports" href="/csv/export" download) Экспорт в CSV
+			table.che-print-items.che-users-view
+				tr.pagebreak
+					th
+						p Дата
+					th
+						p Email
+					th
+						p Город
+					th
+						p Удалить
+				each user in data
+					tr.che-users-view__removed
+						td
+							p=user.date.toLocaleString()
+						td
+							p=user.email
+						td
+							p=user.city
+						td
+							p(class="che-remove-user" data-id=""+user._id) X
+	include ../footer

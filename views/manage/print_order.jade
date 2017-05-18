@@ -1,0 +1,145 @@
+extends layout_manage
+
+block content
+	.che-items-print-controls
+		button.che-print-button(data-id="printing_page")
+			| Печать заказа
+		button.che-print-button(data-id="delivery_page")
+			| Отправить ТТН
+		button.che-print-button(data-id="send_page")
+			| Отправить реквизиты
+	
+	.a-form-to-send-details
+		.a-wrapp-details(id="printing_page")
+			h1.che-items-print-heading 
+				span Заказ №
+				input(type="number" name="1C" value=data.orderNumber)
+
+			.a-privat-table_bought
+				.a-privat-table_bought__number
+					p
+						span Дата: 
+						- var date = new Date(data.date);
+						| #{(decodeURIComponent(date.toLocaleDateString()))} 
+						span(class="a-print-item" onclick="window.print()") Печать
+					p.che-flex-print
+						i На сумму: 
+						span 
+							input(type="number" min="1" value=data.priceCommon)
+						i руб.
+					p.che-flex-print
+						i Сумма доставки:
+						span 
+							input(type="number" min="0" value='')
+						i руб.
+
+				.a-privat-table.a-privat-table__bought.a-privat-table__orders
+					.a-privat-table__info_order
+						h5 Заказ:
+						table
+							tbody
+								tr
+									th Наименование
+									th Размер
+									th Цвет
+									th Количество
+									th Цена
+									- var count = 0;
+								each goods in data.goods
+									- count += +goods.count
+									tr
+										td=goods.art + ' / ' + goods.title
+										td=goods.size
+										td=goods.color
+										td=goods.count
+										td=goods.price + " руб."
+								tr
+									td -
+									td -
+									td -
+									td=count
+									td=data.priceCommon + " руб."
+					.a-privat-table__user
+						h5 Информация о заказе:
+						table
+							tbody
+								tr
+									th Страна
+									td=(decodeURIComponent(data.country))
+								tr
+									th Город
+									td=(decodeURIComponent(data.sity))
+								tr
+									th Служба доставки
+									td=(decodeURIComponent(data.delivery))
+								tr
+									th Склад
+									td=(decodeURIComponent(data.warehouse))
+						h5 Информация о клиенте:
+						table
+							tbody
+								tr
+									th ФИО
+									td=(decodeURIComponent(data.fio))
+								tr
+									th Номер телефона
+									td=(decodeURIComponent(data.number))
+								tr
+									th Почта
+									td=(decodeURIComponent(data.email))
+
+			.a-privat-table_bought
+				h5 Общая сумма:
+				p.che-flex-print
+					span 
+						input(type="number" min="0" value='')
+					i руб.	
+			
+		
+		form.a-wrapp-details(id="delivery_page")
+			h1.che-items-print-heading 
+				span Номер ТТН
+				input(type="number" name="ttn" value="")
+				span Номер заказа 1С
+				input(type="number" name="order" value=data.orderNumber)
+				input(type="hidden" name="email" value=data.email)
+			.a-privat-table_bought
+				h5 Информация о клиенте:
+				table
+					tr
+						th Почта
+						td=(decodeURIComponent(data.email))
+
+				.a-send-ttn
+					button.a-button-white
+						| Отправить
+
+		
+		form.a-wrapp-details.a-active-tab(id="send_page")
+			h1.che-items-print-heading 
+				span Отправка реквизитов
+
+			.a-privat-table_bought
+				h5 Сообщение для клиента:
+				label(class="a-subject-field" for="subject")
+					span Тема сообщения: 
+					input(required type="text" id="subject" name="subject" value="Реквизиты для оплаты")
+				input(type="hidden" id="status" name="status" value="4")
+				input(type="hidden" id="order" name="orderId" value=data.id)
+				input(type="hidden" name="email" value=data.email)
+				textarea(required name="html_msg" class="a-textarea-field-to-send" rows="20")
+					p Добрый день !{decodeURIComponent(data.fio)}! Сумма к оплате по Вашему заказу: !{data.priceCommon} руб.
+					p Номер Вашего заказа: !{data.orderNumber}
+					p Реквизиты для оплаты:
+					p Карта Сбербанка
+					p 5332 0580 4585 1678
+					p Ольга Александровна К
+					p Об оплате сообщите, пожалуйста, ответом на это сообщение.
+
+				.a-send-ttn
+					button.a-button-white
+						| Отправить
+
+				script(src='//cdn.tinymce.com/4/tinymce.min.js')
+				script.
+					tinymce.init({ selector:'textarea', plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak'], toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image' });

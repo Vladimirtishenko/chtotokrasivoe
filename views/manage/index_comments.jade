@@ -1,0 +1,12 @@
+extends layout_manage
+
+block content
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin
+		h1.a-head-font-left-side Отзывы
+		.a-comments-admin-block
+			iframe(src="http://chechelyka.svkament.ru/admin" width="100%" height="900px")
+			
+	include ../footer

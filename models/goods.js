@@ -1,0 +1,1 @@
+exports.Goods = require("../middleware/modules/Product/models/SchemaModel");

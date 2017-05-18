@@ -1,0 +1,251 @@
+.a-head
+	width 100%
+	height 125px
+	position relative
+	z-index 11
+	background-image url('../img/header.png')
+	background-repeat repeat-x
+
+.a-button-mobile-menu
+	display none
+	
+.a-parth-to-center
+	width w
+	height 125px
+	margin 0 auto
+	display flex
+	position relative
+	justify-content space-between
+
+.a-menu-item-check
+	position absolute
+	left -99999px
+	opacity 0
+
+.a-side-logo
+	display flex
+	position relative
+	align-items center
+	padding 0 20px 0 0
+
+.a-side-logo p, .a-side-logo p span
+	font-size 14px i
+	font-family HelveticaRoman i
+
+.a-side-logo .a-auction-info-text 
+	font-size 12px
+	font-family HelveticaRoman
+	margin-top -20px
+	padding-left 36px
+	position relative
+	line-height 18px
+	color fontg
+	&:before
+		content ""
+		position absolute
+		width 0
+		height 0
+		border-style solid
+		top 8px
+		line-height 18px
+		border-width 8.5px 0 8.5px 13px
+		border-color transparent transparent transparent #ffb121
+		left 13px
+	&:hover .a-tooltip-info
+		display block
+
+.a-tooltip-info
+	display none
+	position absolute
+	background #fff
+	z-index 9
+	padding 20px
+	border 2px solid #ffca10
+	&:before 
+		content ""
+		position absolute
+		width 99px
+		display block
+		z-index -1
+		bottom 0
+		height 101px
+		right -3px
+		background url('../img/sprite.png')
+		background-position -440px -399px
+
+.a-menu-item
+	position absolute
+	top 5px
+	right 90px
+	z-index 1
+	
+.a-side-backet__image
+	background-color #000
+	position relative
+	padding 50px 5px 8px
+	display block
+	&:before
+		content ""
+		position absolute
+		width 39px
+		height 50px
+		top 0
+		left 0
+		right 0
+		margin auto
+		background-image url('../img/sprite.png')
+		background-position -363px -4px
+
+.a-side-backet__count, .a-side-backet__price
+	color #fff 
+	font-size 12px 
+	display block
+	padding 2px 10px
+	white-space nowrap
+	text-align center
+
+.a-time-to-start
+	padding 15px 15px 0 15px
+	position absolute
+	text-align center
+	background green
+	color #fff
+	bottom -45px
+	left 50%
+
+.a-time-to-start span 
+	font-family HelveticaBold
+	font-size 52px
+	line-height 25px
+	padding 15px
+	display inline-block
+	
+.a-time-to-start span mark
+	font-size 16px
+	font-family HelveticaThin
+	color #ffffff
+	margin-right 10px
+	letter-spacing 2px
+	font-style normal
+	
+.a-time-to-start p 
+	font-family HelveticaRoman
+	font-size 15px
+
+.a-replaced-time-container
+	font-size 17px
+	font-family HelveticaThin
+	color #ffffff
+	padding 15px 0
+	display inline-block
+
+
+@media screen and (max-width: 1024px)
+
+	.a-side-logo .a-auction-info-text
+		display none
+
+	.a-parth-to-center
+		width 100%
+	
+	.a-side-logo p 
+		display none
+		
+	.a-parth-to-center
+		justify-content flex-start
+		
+	.a-menu-item
+		top 0
+		left 0
+		width inherit
+		text-align center
+		
+	.a-side-logo
+		position absolute
+		top 40px
+		width 350px
+		left 0
+		right 0
+		margin auto
+		padding 0
+		
+	.a-head, .a-parth-to-center
+		height initial
+		
+	.a-time-to-start
+		position relative
+		display table
+		margin 50px auto -50px
+		left initial
+		bottom initial
+  
+@media screen and (max-width: 800px)
+	.a-parth-to-center	
+		background #000
+		padding-right 70px
+		justify-content space-between
+		
+	.a-time-to-start
+		margin 135px auto -50px
+		z-index -2
+		
+	.a-side-logo
+		top 90px
+		z-index -2
+		
+	.a-chat-container__button
+		position absolute
+		width 58px i
+		height 58px i
+		left -62px i
+		top 0 i
+		cursor pointer
+		background-image url('../img/sprite.png')
+		background-position -633px -155px i 
+		margin 0 i
+		
+	.a-side-backet__count, .a-side-backet__price
+		display none
+		
+	.a-side-backet__image
+		padding 50px 22px 8px
+		
+	.a-link-item
+		display block
+		margin 1px 0px
+		background #000
+		padding 17px 10px
+		text-align left
+		color #fff
+		font-family HelveticaRoman
+		font-size 16px
+		border-bottom 1px solid rgba(0,0,0,.2)
+		cursor pointer
+
+	.a-menu-item
+		top -210px
+		left 0
+		width inherit
+		text-align center
+		z-index 99
+		transition .2s
+		z-index -1
+		
+	.a-button-mobile-menu
+		width 58px
+		height 58px
+		top 0
+		left 0
+		display block
+		background-image url('../img/sprite.png')
+		background-position -349px -185px
+		cursor pointer
+
+	.a-menu-item-check:checked ~ .a-menu-item
+		transition .6s
+		top 58px
+	
+	.a-menu-item-check:checked + .a-button-mobile-menu
+		background-position -349px -238px
+		
+

@@ -1,0 +1,16 @@
+extends layout_manage
+
+block content
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin.__a-for-auction(data-load="/allGoodsAuction" data-template="allGoodsAuction")
+		.a-container-search.a-container-width-button
+			.a-container-wrapper-search
+				.a-search-box
+					input#a-search-admin(type='text', name='search', placeholder='Поиск товара')
+				p Искать товар по названию
+			button(class="a-fuck-auction-remove a-button-white") Удалить нахуй все товары!
+		h1.a-head-font-left-side Товары аукциона
+		view.a-all-goods-table
+	include ../footer

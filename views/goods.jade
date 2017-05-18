@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	- var classie = (agent && !agent.ie) ? "a-flexed-block-main" : "";
+	section.a-main(class=classie)
+		.a-flexed-block-main__item
+			include header.jade
+			h1.a-head-font-left-side Все товары
+			.a-description-of-delivery
+				.a-delivery-info
+					| !{delivery_info && delivery_info.text}
+				a(href="#" class="button-modal" data-attr="a-modal-size-chart")
+					| Размерная сетка
+			.a-all-goods-table.a-zoom-container
+		include footer.jade

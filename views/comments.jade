@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	section.a-main.a-flexed-block-main
+		.a-flexed-block-main__item
+			include header.jade
+			h1.a-head-font-left-side Отзывы
+			#kament_comments.comments-block
+			script(type='text/javascript').
+				var kament_subdomain = 'chechelyka';
+				(function() {
+				var node = document.createElement('script'); node.type = 'text/javascript'; node.async = true;
+				node.src = 'http://' + kament_subdomain + '.svkament.ru/js/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(node);
+				})();
+		include footer.jade

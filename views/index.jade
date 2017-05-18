@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	section.a-main 
+		include header.jade
+		include chat.jade
+		.a-backgroung-general-goods.__index-auction
+			.a-back-opacity
+				.a-text-preloader
+					h1 Дождитесь начала аукциона, лоты не загружены!
+				.a-preloaders.__blue-preloader
+			
+		h1.a-head-font Cледующие лоты
+		.a-else-goods.a-zoom-container
+			.a-preloaders.__yellow-preloader
+		
+		a(href="/goods")
+			button.a-classic-button-all-lots
+				span Помотреть все лоты аукциона
+
+		include footer.jade

@@ -1,0 +1,129 @@
+doctype html
+html
+	head
+		title= title
+		meta(name="viewport" content="width=device-width")
+		link(rel='stylesheet', href='/build/build.app.css')
+		link(rel="icon" type="image/png" href="/favicon.png")
+	body
+		section.a-modal
+			.a-modal__item.enter
+				span.a-modal-close
+				form.a-form-submit.a-form-modal.-enter-placeholder(data-action="login")
+					h2.a-modal__item_title Войти
+					input(type="email" id="a-name" name="email" required)
+					label(for="#a-name") Email
+					input(type="password" id="a-pwd" name="pass" required)
+					label(for="#a-pwd") Пароль
+					//- a(href="#" class="a-remember-pwd a-link-reg -a-form-change-listener" data-attr="-remember-placeholder") Забыли пароль?
+					.a-button-area-modal
+						button.a-button-white.__uppercase(type="submit") Войти
+						span.a-between или
+						a(href="#" class="a-link-item-green -a-form-change-listener " data-attr="-reg-placeholder") Зарегистрироваться
+				form.a-form-submit.a-form-modal.-reg-placeholder(data-action="register_user")
+					h2.a-modal__item_title Регистрация
+					input(type="email" id="a-name" name="email" required)
+					label(for="#a-name") Email
+					input(type="password" id="a-pwd" name="pass" required)
+					label(for="#a-pwd") Пароль
+					input(type="text" id="a-pwd" name="city" required)
+					label(for="#a-pwd") Город
+					.a-button-area-modal
+						button.a-button-white.__uppercase(type="submit") Зарегистрироваться
+						span.a-between или
+						a(href="#" class="a-link-item-green -a-form-change-listener" data-attr="-enter-placeholder") Есть аккаунт?
+				//- form.a-form-submit.a-form-modal.-remember-placeholder
+				//- 	h2.a-modal__item_title Напомнить пароль
+				//- 	input(type="text" id="a-name" name="email" required)
+				//- 	label(for="#a-name") Email
+				//- 	.a-button-area-modal
+				//- 		button.a-button-white.__uppercase(type="submit" data-action="remember_pass") Вспомнить пароль
+				//- 		span.a-between или
+				//- 		a(href="#" class="a-link-item-green -a-form-change-listener" data-attr="-enter-placeholder") уже вспомнили?
+			.a-modal__item.rules
+				span.a-modal-close
+				h2.a-modal__item_title Правила аукциона
+				:verbatim
+					!{rules && rules.text}
+			.a-modal__item.order
+				span.a-modal-close
+				form.a-form-submit-order.a-form-modal.-enter-placeholder(data-action="order")
+					h2.a-modal__item_title Оформить заказ
+					select(id="a-country" name="country" required)
+						option(value="" selected disabled) Выбрать страну
+						option(value="Россия") Россия
+						option(value="Белоруссия") Белоруссия
+						option(value="Казахстан") Казахстан
+					label(for="#a-country") Страна
+					input(type="text" id="a-sity" placeholder="Город доставки" name="sity" required)
+					label(for="#a-sity") Город
+					input(type="text" id="a-fio" placeholder="Ваше ФИО" name="fio" required)
+					label(for="#a-fio") ФИО
+					select(id="a-delivery" name="delivery" required)
+						option(value="" selected disabled) Выбрать способ доставки
+						option(value="КИТ") КИТ
+						option(value="ПЭК") ПЭК
+						option(value="Желдороэкспедиция") Желдороэкспедиция
+						option(value="Деловые линии") Деловые линии
+						option(value="Байкал сервис") Байкал сервис
+						option(value="Почта России") Почта России
+						option(value="СДЭК") СДЭК
+					label(for="#a-delivery") Способ доставки
+					input(type="text" id="a-warehouse" placeholder="Номер склада" name="warehouse" required)
+					label(for="#a-warehouse") Склад
+					input(type="text" id="a-number" name="number" placeholder="Пример: 79225551234" required)
+					label(for="#a-number") Номер телефона
+					.a-button-area-modal
+						button.a-button-white.__uppercase.a-data-order-send(type="submit") Отправить
+			.a-inner-background
+				span.a-modal-close.a-yellow-close
+				span(class="a-prev a-data-controls-sider" data-controls="prev")
+				span(class="a-next a-data-controls-sider" data-controls="next")
+				.a-outer-for-image.a-images-to-height
+			.a-modal__item.a-modal-size-chart
+				span.a-modal-close
+				h2.a-modal__item_title Размерная сетка:
+				table
+					tr
+						td Маркировка размеров
+						td Отечественные размеры
+						td Обхват груди,см
+						td Обхват талии,см
+						td Обхват бедер,см
+					tr
+						td S
+						td 42-44
+						td 82-86
+						td 62-64
+						td 88-92
+					tr
+						td M
+						td 44-46
+						td 86-90
+						td 66-68
+						td 92-96
+					tr
+						td L
+						td 46-48
+						td 90-94
+						td 68-72
+						td 96-100
+					tr
+						td XL
+						td 48-50
+						td 94-98
+						td 72-76
+						td 100-104
+					tr
+						td XXL
+						td 50-52
+						td 98-102
+						td 76-80
+						td 104-108
+
+		block content
+		script.
+			var timeDiff =!{timeDiff};
+		script(src="/build/build.app.js")
+		script.
+			(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter43352479 = new Ya.Metrika({ id:43352479, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");

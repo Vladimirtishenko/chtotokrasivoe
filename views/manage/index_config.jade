@@ -1,0 +1,44 @@
+extends layout_manage
+
+block content
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin.__a-for-config
+		h1.a-head-font-left-side Настройки
+		view.a-all-goods-table.a-config-table
+			.a-config
+				h3.a-head-font-left-side-mini Дата
+				.a-outer-calendar
+					p.a-startet-date
+						| Дата начала: 
+						- var date = (+params) ? new Date(+params) : null;
+						- var dateParse = (date instanceof Date) ? (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " " + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) : "Не определена"
+						span= dateParse
+				.a-calendar
+					input.a-flatpickr(type='text', placeholder='Выбрать дату', data-enabletime='true', data-time_24hr='true', data-timeFormat="H:i")
+				button.a-date-save.a-button-black Изменить дату
+				p.a-result
+			.a-users-array
+				h3.a-head-font-left-side-mini Пользователи
+				- if(users.length > 0)
+					table.a-users-table
+						tr
+							th Email
+							th Роль
+							th Редактирование
+						each user in users
+							tr
+								td=user.email
+								td=user.role
+								td 
+									span(class="a-user-remove" data-user=user.id) Удалить
+				.a-new-user-add
+					form.a-form-to-add-user
+						input(name="email" type="email" placeholder="Email" required)
+						input(name="pass" type="text" placeholder="Пароль" required)
+						input(name="role" type="hidden" value="admin" required)
+						button.a-user-save.a-button-black Добавить пользователя
+					
+
+	include ../footer

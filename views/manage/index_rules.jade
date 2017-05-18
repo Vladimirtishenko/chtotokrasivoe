@@ -1,0 +1,18 @@
+extends layout_manage
+
+block content
+	script(src='//cdn.tinymce.com/4/tinymce.min.js')
+	script.
+		tinymce.init({ selector:'textarea', plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak'], toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image' });
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin
+		h1.a-head-font-left-side Правила
+		.a-rules-block
+			form.a-forms-rules-update(data-action="page_rules")
+				textarea(name="text", data-id=rules.fieldId, rows="30")=rules.text
+				button.a-date-save.a-button-black(type="submit") Изменить правила
+			
+			
+	include ../footer

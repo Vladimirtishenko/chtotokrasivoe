@@ -1,0 +1,133 @@
+.a-modal
+	display none
+	justify-content center
+	align-items center
+	background rgba(0,0,0,.5)
+	position fixed
+	opacity 0
+	width 100%
+	height 100%
+	z-index 9999
+
+.a-modal__item
+	display none
+	background-color #fff
+	background-image url('../img/header.png')
+	padding 50px
+	flex-wrap wrap
+	max-width 500px
+	background-repeat no-repeat
+	position relative
+
+.a-modal__item.a-modal-size-chart
+	max-width 700px
+
+.a-modal-close
+	width 40px
+	height 40px
+	background-image url('../img/sprite.png')
+	background-position -361px -132px
+	position absolute
+	right 20px
+	top 20px
+	cursor pointer
+	transform rotate(0)
+	transition all .5s ease-out
+	z-index 2
+	&:hover
+		transform rotate(90deg)
+
+.a-remember-pwd
+	margin 10px 0 i
+
+
+.a-button-area-modal
+	display flex
+	justify-content flex-start
+	align-items center
+	width 100%
+	margin-top 15px
+
+.a-between
+	display inline-block
+	margin 0 20px
+	font-family HelveticaRoman
+	color fontg
+
+.a-modal__item_title
+	width 100%
+	font-size 50px
+	font-family HelveticaThin
+	padding-bottom 10px
+
+.a-form-modal
+	width 100%
+	display none
+	justify-content space-between
+	align-items center
+	flex-wrap wrap
+	
+.-enter-placeholder
+	display flex
+
+.a-form-modal input, .a-form-modal select
+	width 75%
+	margin 10px 0
+	background #000
+	color #fff
+
+.a-link-reg
+	margin 0 10px
+	padding 1px 0
+	color #000
+	font-size 14px
+	background transparent
+	display inline-block
+	border-bottom 1px solid rgba(0,0,0,.2)
+	&:hover 
+		border-bottom 1px solid rgba(0,0,0,0)
+	
+.a-form-modal label
+	width 20%	
+	font-family HelveticaRoman
+
+.-animate-modal-in
+	display flex
+	animation fadeIn 1s both 
+
+.-animate-modal-out
+	animation fadeOut 1s both 
+
+.rules
+	max-width 700px
+
+.rules p 
+	font-family HelveticaRoman
+	color fontg
+	line-height 20px
+
+.a-modal-goods-winner p 
+	color #767575
+	font-family HelveticaLight
+	font-size 17px
+
+.a-modal-goods-winner p span 
+	color #000
+
+@keyframes fadeIn {
+	0% {
+		opacity 0
+	}
+	100% {
+		opacity 1
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity 1
+	}
+	100% {
+		opacity 0
+	}
+}

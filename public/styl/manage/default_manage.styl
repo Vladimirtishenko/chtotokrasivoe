@@ -1,0 +1,1274 @@
+w = 945px
+greys = #f5f5f5
+fontg = #767575
+green = #15a399
+greenTooltip = #20bbb0
+reds = #fc392c
+pink = #e8065a
+dark = #131313
+i = !important
+
+
+@font-face
+   font-family HelveticaLight
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-Light.otf')
+
+@font-face
+   font-family HelveticaThin
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-Thin.otf')
+
+@font-face
+   font-family HelveticaUltraLight
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-UltraLight.otf')
+
+@font-face
+   font-family HelveticaMedium
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-Medium.otf')
+
+
+@font-face
+   font-family HelveticaRoman
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-Roman.otf')
+   
+@font-face
+   font-family HelveticaBold
+   font-style normal
+   src url('../../fonts/HelveticaNeueCyr-Bold.otf')
+
+*
+  box-sizing border-box
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video
+  background transparent
+  border 0
+  font-size 100%
+  margin 0
+  outline 0
+  padding 0
+  vertical-align baseline
+
+html, body 
+  line-height 1 
+  font-family Arial
+  height 100%
+  min-height 100%
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+  display block
+
+h1,h2,h3,h4,h5,h6
+  font-weight normal
+
+nav ul
+  list-style none
+
+blockquote, q
+  quotes none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+  content ''
+  content none
+
+a
+  background transparent
+  font-size 12px
+  margin 0
+  padding 0
+  vertical-align baseline
+  text-decoration none
+
+mark
+    font-style italic
+    font-weight 700
+
+del
+  text-decoration line-through
+
+abbr[title], dfn[title]
+  border-bottom 1px dotted
+  cursor help
+
+table
+  border-collapse collapse
+  border-spacing 0
+
+/* change border colour to suit your needs */
+hr
+  border 0
+  border-top 1px solid #ccc
+  display block
+  height 1px
+  margin 1em 0
+  padding 0
+
+input, select 
+  vertical-align middle
+
+span 
+  font-size 12px
+
+i 
+  font-style normal 
+
+input[type="text"], input[type="email"], input[type="password"], .a-search-box__select
+  border 2px solid #000
+  width 200px
+  background #fff 
+  padding 10px
+
+table
+  border 1px solid fontg
+  width 100%
+
+th
+  background greys
+  font-weight 400
+  padding 10px
+  text-align left
+  font-family HelveticaLight
+  border 1px solid fontg
+  
+td 
+  border 1px solid fontg
+  padding 10px
+  font-family HelveticaLight
+  
+.a-button-white
+  background rgba(0,0,0,0)
+  border 2px solid #000
+  padding 15px 17px
+  font-size 14px
+  font-family HelveticaRoman
+  color #000
+  transition all .4s ease-out
+  cursor pointer
+  line-height 13px
+  &:hover 
+    color #fff 
+    background rgba(0,0,0,1)
+
+ 
+.a-head
+  width 100%
+  position relative
+  z-index 1
+  background url('../../img/header.png')
+  
+.a-parth-to-center
+  width w
+  height 125px
+  margin 0 auto
+  display flex
+  position relative
+  justify-content space-between
+
+.a-side-logo
+  display flex
+  position relative
+  align-items center
+  padding 0 20px 0 0
+
+.a-side-logo p 
+  font-size 12px
+  font-family HelveticaRoman
+  margin-top -20px
+  padding-left 36px
+  position relative
+  line-height 18px
+  color fontg
+  &:before
+    content ""
+    position absolute
+    width 0
+    height 0
+    border-style solid
+    top 8px
+    line-height 18px
+    border-width 8.5px 0 8.5px 13px
+    border-color transparent transparent transparent #ffb121
+    left 13px
+    
+.a-head-font 
+  padding 20px 0
+  font-size 50px
+  width w
+  margin 0 auto
+  text-align left
+  font-family HelveticaThin
+  
+.a-menu-admin
+  display block
+  margin 1px 0px
+  background #000
+  padding 17px 10px
+  border-bottom 1px solid rgba(0,0,0,.2)
+  cursor pointer
+  
+.a-menu-admin__links
+  width w 
+  margin 0 auto
+  display flex
+  position relative
+  align-items center
+  justify-content space-between
+  
+.a-menu-admin__links a, .a-menu-admin__links p
+  color #fff
+  font-family HelveticaThin
+  font-size 20px
+  padding 10px
+  display inline-block
+  cursor pointer
+  
+.a-container-search
+  width w
+  margin 20px auto 0
+  display flex 
+  justify-content flex-start
+  align-items center
+
+.a-container-width-button
+  justify-content space-between
+
+.a-container-wrapper-search
+  display flex
+  justify-content flex-start
+  align-items center
+
+.a-container-search p
+  font-family HelveticaThin 
+  font-size 20px
+  color fontg 
+  padding-left 20px
+  
+.a-all-goods-table
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+  width w
+  margin auto
+
+.a-all-goods-table__item
+  width 23%
+  position relative
+  color #000
+  cursor pointer
+
+
+.a-all-goods-table__item > img
+  width 100%
+  box-shadow 0 0 30px -2px rgba(0,0,0,.2)
+
+.a-all-goods-table__description
+  padding 10px 0
+
+.a-all-goods-table__description_number
+  color fontg
+  font-size 14px
+  font-family HelveticaRoman
+  padding 15px 0 10px
+  
+.a-all-goods-table__description_info
+  font-size 16px
+  font-family HelveticaRoman
+
+.a-all-goods-table__description_info_article
+  margin-top 10px
+  font-size 16px
+  font-family HelveticaThin
+  color fontg
+
+.a-all-goods-table__description_info_article span 
+  color #000
+  font-size 16px
+
+.a-hidden-block
+  display flex
+  align-items flex-start
+  justify-content space-between
+  background #fff
+
+.a-hidden-block__description
+  padding 0 70px 0 0 
+  white-space nowrap
+
+.a-hidden-block__description__outer
+  padding 0 0 30px
+  position relative 
+  &:after 
+    content ""
+    position absolute
+    width 95px
+    height 2px
+    background #000
+    bottom 20px
+    left 0
+    
+  
+.a-hidden-block__description-link
+  font-family HelveticaRoman
+  font-size 14px
+  display block
+  padding-bottom 10px
+  
+.a-hidden-block__description-link i 
+  color fontg
+  padding-bottom 3px
+  display inline-block
+  font-family HelveticaThin
+  font-size 16px
+
+.a-hidden-block__description-link span 
+  display block
+  font-family HelveticaThin
+  font-size 14px
+  color #000
+
+.a-hidden-block__description .a-old-price
+  padding-bottom 5px
+  
+.a-head-font-left-side 
+  padding 30px 0
+  font-size 50px
+  width w
+  margin auto
+  display block
+  position relative
+  text-align left
+  font-family HelveticaThin
+  &:before
+    content ""
+    position absolute
+    width 112px
+    height 50px
+    background-image url('../../img/sprite.png')
+    background-position -474px -199px
+    z-index 1
+    right -55px
+    top 30px
+ 
+.a-head-font-left-side-mini
+  padding 30px 0
+  font-size 30px
+  font-family HelveticaThin
+
+.a-button-download-more
+  display flex 
+  justify-content center
+  margin 20px 0 40px
+  
+.a-footer
+  width 100%
+  background url('../../img/footer.png')
+
+.a-footer-container
+  width w 
+  padding 20px
+  margin 0 auto
+  font-family HelveticaRoman
+  display flex
+  color #fff
+  font-size 12px
+  color fontg
+  justify-content space-between
+  align-items center
+  
+.a-hidden-form
+  display none
+  
+.a-conteiner-flexible-fixed
+  display flex 
+  justify-content center
+  align-items center 
+  right 100%
+  transition .5s
+  position fixed 
+  width 100%
+  height 100%
+  background-color rgba(256,256,256, .9)
+  z-index 9999
+  
+.a-modal-close
+  width 40px
+  height 40px
+  background-image url('../../img/sprite.png')
+  background-position -361px -132px
+  position absolute
+  right 20px
+  top 20px
+  cursor pointer
+  transform rotate(0)
+  transition all .5s ease-out
+  &:hover
+    transform rotate(90deg)
+    
+.a-conteiner-flexible-fixed .a-hidden-form
+  display flex
+  
+.container-description-form
+  display flex 
+  justify-content flex-start
+  align-items center
+  padding 10px 0
+  flex-wrap wrap
+
+.a-hidden-form_description
+  padding-left 20px
+  display flex 
+  flex-direction column
+  
+.container-description-form__title 
+  font-family HelveticaThin
+  font-size 25px
+  
+
+.container-description-form__else_params
+  font-family HelveticaThin
+  font-size 20px
+  padding-bottom 5px
+  width 100%
+
+.container-description-form span 
+  width 100% 
+  display block
+  color fontg
+  font-family HelveticaThin
+  font-size 18px
+  
+.container-description-form label 
+  padding-right 10px 
+  text-align center
+  
+.a-containet-flex-to-end-button
+  margin-top 20px
+  
+.a-delete-this-item-with-id
+  width 45px
+  height 45px
+  display block
+  position absolute
+  right 0
+  z-index 9
+  background url('../../img/sprite.png')
+  background-position -359px -130px
+  transition 1s
+  &:hover
+    transform rotate(180deg)
+    
+.a-config
+  width 50% 
+  
+.a-users-array
+  width 50%
+
+.a-flatpickr
+  display inherit
+  width 249px i
+  
+.a-startet-date 
+  font-family HelveticaThin
+  font-size 20px
+  color #767575
+  padding 0 0 20px
+  
+.a-startet-date span 
+  color reds
+  font-size 20px 
+  
+.a-button-black
+  background #15a399
+  text-transform uppercase
+  color #fff
+  font-size 21px
+  font-family HelveticaThin
+  padding 25px 29px 22px
+  letter-spacing 2px
+  line-height 13px
+  -webkit-transition all .4s ease-out
+  transition all .4s ease-out
+  cursor pointer
+  border 2px solid #15a399
+  margin-top 2px
+  
+.a-result
+  padding-top 20px
+  font-family HelveticaThin
+  font-size 20px
+  
+.a-privat-table_bought
+  width w
+  margin 0 auto 20px
+  position relative
+  &:nth-child(2n + 2):after 
+    content ""
+    position absolute
+    width 100px
+    height 100px
+    background url('../../img/sprite.png') -483px -293px
+    left -102px
+
+.a-show-or-hide-order
+  position absolute
+  left -25px
+  top 10px
+  &:checked + .a-orders-description
+    display block i
+
+ .a-saved-status
+   display flex 
+   justify-content flex-end
+
+.a-status-block
+  display flex
+  align-items center
+  margin 10px 0
+
+.a-privat-table_bought__number
+  display flex 
+  align-items center
+  justify-content space-between
+  padding 14px
+  background greys
+  border-bottom 2px solid #000
+  
+.a-privat-table_bought__number p 
+  font-family HelveticaRoman
+  font-size 14px
+  
+.a-privat-table_bought__number p span 
+  font-family HelveticaRoman
+  color fontg 
+
+.a-privat-table__bought
+  margin 20px 0
+  
+.a-privat-table_bought .a-privat-table__count_and_price p span
+  font-family HelveticaRoman
+  color fontg 
+  font-size 14px
+
+.a-privat-main .a-time-to-start
+  display none
+  
+.a-data-order
+  width 100%
+  
+.a-privat-table__orders
+  display flex
+  justify-content space-between
+  
+.a-privat-table__info_order
+  width 70%
+
+.a-privat-table__user
+  padding-left 20px
+  
+.a-privat-table_bought h5
+  padding 10px
+  font-family HelveticaLight
+  
+.a-privat-table__user p
+  padding 5px
+  font-family HelveticaLight
+  
+.a-privat-table__user span
+  color greys
+  font-family HelveticaLight
+  
+.a-privat-table__changed
+  padding 10px 30px 
+  border none
+  margin-right 10px
+
+.a-privat-table__submit
+  padding 13px 20px 10px
+  border none
+  font-family HelveticaLight
+  cursor pointer
+  
+.a-status-orders
+  font-size 16px
+  font-family HelveticaLight
+  
+.a-status-orders span
+  color fontg
+  font-size 16px
+  font-family HelveticaLight
+  
+.a-user-remove
+  color reds
+  font-size 16px
+  font-family HelveticaLight
+  text-align center
+  cursor pointer
+  
+.a-form-to-add-user
+  width 100%
+  display flex 
+  justify-content space-between
+  flex-wrap wrap
+  margin 20px 0
+
+.a-form-to-add-user input
+  width 48%
+  
+.a-form-to-add-user .a-user-save
+  width 100%
+  margin-top 10px
+  
+.a-notify
+  padding 20px 0 0
+  font-size 18px
+  font-family HelveticaLight
+  color reds
+  
+.a-modal__item
+  background-color #fff
+  background-image url('../../img/header.png')
+  padding 50px
+  flex-wrap wrap
+  max-width 500px
+  border 1px solid greys
+  background-repeat no-repeat
+  position relative
+  
+.a-form-modal
+  width 100%
+  display flex
+  justify-content space-between
+  align-items center
+  flex-wrap wrap
+  
+.a-modal__item_title
+  width 100%
+  font-size 50px
+  font-family HelveticaThin
+  padding-bottom 30px
+
+.a-form-modal input, .a-form-modal select
+  width 75%
+  margin 10px 0
+  background #000
+  color #fff
+  
+.a-form-modal label
+  width 20% 
+  font-family HelveticaRoman
+  
+.a-button-area-modal
+  display flex
+  justify-content flex-start
+  align-items center
+  width 100%
+  margin-top 15px
+  
+.a-login-form
+  display flex
+  align-items center 
+  justify-content center
+  background #000
+  
+.a-container-for-img img 
+  width 355px
+
+.a-comments-admin-block, .a-rules-block
+  width w 
+  margin 0 auto
+  overflow hidden
+  
+.a-rules-block
+  margin-bottom 40px
+
+.a-date-save
+  margin-top 30px
+
+.a-reload-auction
+  background #fc392c
+  border none
+  padding 15px 20px
+  text-transform uppercase
+  color #fff
+  letter-spacing 1px
+  right 0
+  cursor pointer
+  border 2px solid transparent
+
+.a-hidden-diabled
+  opacity 0.5
+  color #000
+  background greys
+
+.a-menu-list
+  margin 0
+  padding 0
+  
+.a-menu-list li 
+  display inline-block
+  position relative
+  &:hover ul
+    display block
+  
+.a-menu-list li ul 
+  position absolute
+  background #000
+  width 213px
+  padding-top 18px
+  display none
+
+.flatpickr-input
+  cursor pointer
+  z-index 1
+
+.flatpickr-mobileInput
+  opacity 0
+  visibility hidden
+  position absolute
+  width 0
+  height 0
+  box-sizing border-box
+  padding 0
+
+.flatpickr-calendar
+  background #fff
+  display none
+  text-align center
+  padding 0
+  font-size 14px
+  border-radius 3px
+  position absolute
+  min-width 200px
+  width 250px
+  &.open
+    opacity 1
+    z-index 99999
+    display inline-block
+  &.inline
+    display inline-block
+    margin-top 2px
+    position relative
+  &.static
+    position relative
+    &.open
+      display block
+  &.hasWeeks
+    max-width 300px
+  &:before
+    border-width 5px
+    margin 0 -5px
+  &:after
+    border-width 4px
+    margin 0 -4px
+  &.arrowTop
+    &:before
+      border-bottom-color rgba(255,138,101,.2)
+    &:after
+      border-bottom-color #ff8a65
+  &.arrowBottom
+    &:before
+      border-top-color rgba(255,138,101,.2)
+    &:after
+      border-top-color #ff8a65
+
+.flatpickr-calendar:after,.flatpickr-calendar:before
+  position absolute
+  display block
+  pointer-events none
+  border solid transparent
+  content ''
+  height 0
+  width 0
+  left 22px
+
+.flatpickr-month,.flatpickr-next-month i,.flatpickr-prev-month i
+  position relative
+
+.flatpickr-calendar.arrowTop:after,.flatpickr-calendar.arrowTop:before
+  bottom 100%
+
+.flatpickr-calendar.arrowBottom:after,.flatpickr-calendar.arrowBottom:before
+  top 100%
+
+.flatpickr-month
+  border-radius 3px 3px 0 0
+  background #ff8a65
+  color #fff
+  fill #fff
+  padding 4px 0 0
+  padding 0\9
+  text-align center
+  svg
+    top 5px !important
+
+.flatpickr-next-month,.flatpickr-prev-month
+  text-decoration none
+  cursor pointer
+
+.flatpickr-next-month svg,.flatpickr-prev-month svg
+  width 14px
+  position absolute
+  top 9px
+  top 0\9
+
+.flatpickr-next-month svg path,.flatpickr-prev-month svg path
+  fill inherit
+
+.flatpickr-next-month svg:hover,.flatpickr-prev-month svg:hover
+  fill #bbb
+
+.flatpickr-next-month:hover,.flatpickr-prev-month:hover
+  color #bbb
+
+.flatpickr-prev-month
+  svg
+    left 5px
+
+.flatpickr-next-month
+  svg
+    right 5px
+
+.flatpickr-current-month
+  font-size 135%
+  font-weight 300
+  color inherit
+  position relative
+  display inline-block
+  line-height 1
+  .cur-month
+    font-weight 700
+    color inherit
+  .cur-year
+    background 0 0
+    box-sizing border-box
+    color inherit
+    cursor default
+    padding 0
+    margin 0
+    width 3.2em
+    display inline
+    font-size inherit
+    font-weight 300
+    line-height inherit
+    height initial
+    border 0
+    border-radius 0
+    vertical-align initial
+    &:hover
+      background rgba(0,0,0,.05)
+
+.flatpickr-weekdays
+  background #ff8a65
+  text-align center
+  overflow hidden
+
+.flatpickr-days
+  padding-top 1px
+  outline 0
+  text-align left
+  display -webkit-flex
+  display -ms-flexbox
+  display flex
+  -webkit-flex-wrap wrap
+  -ms-flex-wrap wrap
+  flex-wrap wrap
+  border 1px solid rgba(255,138,101,.2)
+  border-top 0
+  border-bottom 0
+  border-radius 0 0 3px 3px
+
+.flatpickr-day
+  background 0 0
+  border 1px solid transparent
+  border-radius 150px
+  box-sizing border-box
+  color #484848
+  cursor pointer
+  display inline-block
+  display -webkit-flex
+  display -ms-flexbox
+  display flex
+  position relative
+  -webkit-align-items center
+  -ms-flex-align center
+  align-items center
+  -webkit-justify-content center
+  -ms-flex-pack center
+  justify-content center
+  font-weight 300
+  width 14.28571%
+  height 35px
+  line-height 35px
+  margin 0
+  text-align center
+  transition 50ms all ease-out
+  &.today
+    border-color #bbb
+
+.flatpickr-day.inRange,.flatpickr-day.nextMonthDay.inRange,.flatpickr-day.nextMonthDay:focus,.flatpickr-day.nextMonthDay:hover,.flatpickr-day.prevMonthDay.inRange,.flatpickr-day.prevMonthDay:focus,.flatpickr-day.prevMonthDay:hover,.flatpickr-day:focus,.flatpickr-day:hover
+  cursor pointer
+  outline 0
+  background #e2e2e2
+  border-color #e2e2e2
+
+.flatpickr-day.today:focus,.flatpickr-day.today:hover
+  border-color #bbb
+  background #bbb
+  color #fff
+
+.flatpickr-day.selected,.flatpickr-day.selected.nextMonthDay,.flatpickr-day.selected.prevMonthDay,.flatpickr-day.selected:focus,.flatpickr-day.selected:hover
+  background #ff8a65
+  color #fff
+  border-color #ff8a65
+
+.flatpickr-day.disabled,.flatpickr-day.disabled:hover,.flatpickr-day.nextMonthDay,.flatpickr-day.notAllowed,.flatpickr-day.notAllowed.nextMonthDay,.flatpickr-day.notAllowed.prevMonthDay,.flatpickr-day.prevMonthDay
+  color rgba(72,72,72,.3)
+  background 0 0
+  border-color transparent
+  cursor default
+
+span
+  &.flatpickr-weekday
+    cursor default
+    font-size 90%
+    color rgba(0,0,0,.54)
+    height 24px
+    line-height 24px
+    margin 0
+    background #ff8a65
+    text-align center
+    display block
+    float left
+    width 14.28%
+    font-weight 700
+
+.flatpickr-weekwrapper
+  display inline-block
+  float left
+  .flatpickr-weeks
+    padding 0 1rem
+    border-left 1px solid rgba(255,138,101,.2)
+    border-bottom 1px solid rgba(255,138,101,.2)
+    border-right 1px solid rgba(255,138,101,.2)
+  .flatpickr-weekday
+    float none
+    width 100%
+  span
+    &.flatpickr-day
+      display block
+      width 100%
+
+.flatpickr-rContainer
+  display inline-block
+  max-width 247px
+  border-bottom 1px solid rgba(255,138,101,.2)
+  & + .flatpickr-time
+    border 1px solid rgba(255,138,101,.2)
+
+.flatpickr-time
+  overflow auto
+  text-align center
+  border-top 0
+  outline 0
+  display block
+  display flex
+  input
+    -moz-appearance textfield
+    background 0 0
+    box-shadow none
+    border 0
+    border-radius 0
+    flex 1
+    width 33%
+    min-width 33%
+    text-align center
+    margin 0
+    padding 0
+    cursor pointer
+    font-weight 700
+    &.flatpickr-minute
+      width 26%
+      font-weight 300
+    &.flatpickr-second
+      font-weight 300
+    &:focus
+      outline 0
+      border 0
+  &.has-seconds
+    input[type=number]
+      width 25%
+      min-width 25%
+
+.flatpickr-am-pm,.flatpickr-time input,.flatpickr-time-separator
+  height 38px
+  display inline-block
+  line-height 38px
+  color #484848
+
+.flatpickr-time input:focus,.flatpickr-time input:hover
+  -moz-appearance number-input
+  background #e2e2e2
+
+.hasTime .flatpickr-days,.hasWeeks .flatpickr-days
+  border-bottom 0
+  border-bottom-right-radius 0
+  border-bottom-left-radius 0
+
+.hasWeeks
+  .flatpickr-days
+    border-left 0
+
+.flatpickr-am-pm
+  outline 0
+  width 21%
+  padding 0 2%
+  cursor pointer
+  text-align left
+  font-weight 300
+
+.flatpickr-am-pm:focus,.flatpickr-am-pm:hover
+  background #ececec
+
+.che-input-with-checkbox__main
+  display flex
+  flex-wrap wrap
+
+.che-input-with-checkbox__wrapper
+  display flex
+  justify-content flex-start
+  align-items center
+  width 100%
+  margin 5px 0
+  
+.che-input-with-checkbox__title
+  width 50px i
+  text-align center
+
+.che-input-with-checkbox__item
+  width 50px i
+  margin 0 10px
+
+.che-print-image
+  padding 0 10px i
+  color #fc392c
+  
+.che-print-image img
+  display block
+  
+.che-action-button
+  display flex 
+  align-items center 
+  justify-content space-between
+
+.che-print-items
+  display table 
+  
+.che-print-items__image
+  width 100%
+  
+.che-print-items__image-block
+  width 100px
+
+.che-print-items td, .che-print-items th 
+  vertical-align middle
+
+.che-print-button
+  background #fc392c
+  border none
+  padding 15px 20px
+  text-transform uppercase
+  color #fff
+  letter-spacing 1px
+  right 0
+  cursor pointer
+  border 2px solid transparent
+  
+.che-items-print-controls
+  padding 10px
+  display flex 
+  justify-content space-between
+  
+.che-items-print-heading
+  font-family HelveticaLight
+  font-size 22px 
+  text-align center
+  padding 20px 0
+  
+.che-flex-print
+  display flex
+  align-items center
+  
+.che-flex-print i 
+  padding 0 5px
+
+.che-items-print-heading span 
+  font-size 23px
+  font-family HelveticaLight
+  padding 0 10px
+  
+.che-users-view
+  padding-bottom 40px
+  
+.che-remove-user
+  text-align center
+  font-weight bold 
+  color reds
+  cursor pointer
+
+.a-notifier
+  width 100%
+  height 100%
+  align-items center
+  justify-content center
+  background rgba(0,0,0, .5)
+  top 0
+  left 0
+  z-index 999
+  position fixed
+  display flex
+
+.a-hide-notify
+  display none i
+
+.a-notifier-content
+  padding 60px 
+  position relative
+  background-color #fff
+  &:before
+    background-image url('../../img/sprite.png')
+    content ""
+    top 0
+    position absolute
+    width 73px
+    height 60px
+    display inline-block
+    background-position -490px -90px
+    left 0
+    z-index 0
+   &:after
+    background-image url('../../img/sprite.png')
+    content ""
+    bottom 0
+    position absolute
+    width 90px
+    height 60px
+    display inline-block
+    background-position -485px -193px
+    left 50%
+    z-index 0
+  
+.a-notifier-content p
+  font-size 19px
+  position relative
+  z-index 1
+  font-family HelveticaLight
+  
+.a-notifier-content i 
+  background-image url('../../img/sprite.png')
+  width 40px
+  height 40px
+  position absolute
+  top 6px
+  right 6px
+  display inline-block
+  background-position -362px -132px
+  cursor pointer
+  &:hover
+    background-position -358px -245px
+
+.a-csv-exports
+  font-family HelveticaLight
+  font-size 19px
+  padding 0 0 20px 0
+
+.a-remove-item-order
+  font-family HelveticaLight
+  font-size 16px
+  color reds
+  cursor pointer
+  
+.a-print-item
+  color reds i
+  cursor pointer
+  font-family HelveticaLight
+  font-size 16px
+  
+.a-wrapp-details
+  display none
+  
+.a-active-tab
+  display block
+  
+.a-send-ttn
+  margin 10px 0
+  display flex
+  justify-content flex-end
+  
+.a-textarea-field-to-send
+  width 100%
+
+.a-subject-field
+  margin 10px 0
+  display block
+
+.a-subject-field span
+  font-family HelveticaLight
+  font-size 16px
+
+.a-orders-hide-block
+  display none
+
+.a-status-wrapper
+  display inline-block
+  width 130px
+
+.a-status-0
+  color grey
+  font-size 14px
+  
+.a-status-1
+  color #FF9800
+  font-size 14px
+  
+.a-status-2
+  color #4CAF50
+  font-size 14px
+  
+.a-status-3
+  color reds
+  font-size 14px
+  
+.a-status-4
+  font-size 14px
+  color #607d8b
+
+
+@media print
+  .che-items-print-controls
+    display none
+    
+  .a-print-item
+    display none
+    
+ .pagebreak
+    page-break-after auto
+
+@media all and (-ms-high-contrast:none)
+  .flatpickr-month
+    padding 0
+

@@ -1,0 +1,44 @@
+header.a-head
+	.a-parth-to-center
+		.a-side-logo
+			a(class="a-link-logo" href="/")
+				img(src="/img/logo.png", alt="")
+			p  Здесь вы можете управлять заказами фильтровать их по принципу оплаченные и не оплаченные
+	.a-menu-admin
+		.a-menu-admin__links
+			ul.a-menu-list
+				li
+					a(href="/page_to_manage_goods") Все товары
+				li
+					p Аукцион
+					ul
+						li 
+							a(href="/page_auction") Лоты аукцион
+						li 
+							a(href="/page_print_no_sell" target="_blank") Не проданные лоты
+				li
+					a(href="/page_orders") Заказы 
+				li
+					a(href="/page_comments") Отзывы 
+				li
+					p Редактор текстов
+					ul
+						li 
+							a(href="/page_rules") Правила 
+						li 
+							a(href="/index_info_delivery") Информация о доставке
+						li 
+							a(href="/page_auction_info") Информация об аукционе
+
+				li
+					p Прочее
+					ul
+						li 
+							a(href="/page_config") Настройки
+						li 
+							a(href="/page_user") Пользователи
+						
+			.che-action-button
+				a.che-print-image(href="/print" target="_blank") 
+						img(width="50" src="/img/printer.svg", alt="")
+				button(class="a-reload-auction") Обновить данные

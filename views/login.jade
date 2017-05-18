@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	link(rel='stylesheet', href='/build/build.manage.css')
+	title Document
+body.a-login-form
+	.a-modal__item
+		form(action="/users" method="POST" data-action="login" class="a-form-submit a-form-modal -enter-placeholder")
+			h2.a-modal__item_title Войти
+			input(type="email" id="a-name" name="email" required)
+			label(for="#a-name") Email
+			input(type="password" id="a-pwd" name="pass" required)
+			label(for="#a-pwd") Пароль
+			.a-button-area-modal
+				button.a-button-white.__uppercase(type="submit") Войти
+			.a-notify= (user || "")

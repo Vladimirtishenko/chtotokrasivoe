@@ -1,0 +1,63 @@
+.a-chat-container
+	width 300px
+	height 100%
+	position fixed
+	background #fff
+	border-left 5px solid #e8065a
+	top 0
+	right 0
+	z-index 999
+	transition all .7s ease
+	padding 30px 20px
+	
+.-animate-chat
+	right -300px
+	
+.a-chat-container__button
+	position absolute
+	width 40px
+	height 145px
+	left -44px
+	background-image url('../img/sprite.png')
+	background-position -631px 0
+	top 50%
+	margin-top -72px
+	cursor pointer
+
+.a-chat-title
+	font-size 35px
+	font-weight 400
+	font-family HelveticaLight
+	
+.a-block-with-proposal
+	padding 20px 0
+	font-size 14px
+	font-family HelveticaLight
+	position relative
+	&:before 
+		content ""
+		position absolute
+		width 13px
+		height 30px
+		bottom -10px
+		background url('../img/sprite.png') -396px -76px
+	&:last-child:before
+		display none
+
+.a-block-with-proposal span
+	padding 0 5px
+	color reds
+	
+.a-block-with-proposal__buy_now
+	padding-bottom 10px
+	
+.a-block-with-proposal__user
+	color fontg
+	padding 3px 0 0 0
+	
+.a-block-with-proposal__user i 
+	padding 2px 0px
+	display block
+	line-height 18px
+
+	

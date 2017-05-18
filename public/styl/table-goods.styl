@@ -1,0 +1,212 @@
+.a-all-goods-table
+	display flex
+	justify-content flex-start
+	flex-wrap wrap
+	width w
+	margin auto
+
+.a-all-goods-table__item
+	width 20%
+	padding 5px 5px 40px 5px
+	position relative
+	&:nth-child(10n+1):before
+		content ""
+		position absolute
+		width 270px
+		height 180px
+		background-image url('../img/triangle.jpg')
+		z-index -1
+		left -143px
+		top -14px
+	&:nth-child(10n+10):after
+		content ""
+		position absolute
+		width 112px
+		height 50px
+		background-image url('../img/sprite.png')
+		background-position -474px -6px
+		z-index -1
+		right -135px
+		top 90px
+	&:nth-child(5n+4) .a-hidden-block
+		right 0
+		left inherit
+	&:nth-child(5n+5) .a-hidden-block
+		right 0
+		left inherit
+	&:hover
+		z-index 10
+	&:hover .a-hidden-block
+		display flex
+
+.a-table-all-goods-hidden .a-else-goods__description_info-link
+	display block
+
+.a-all-goods-table__item > img
+	width 100%
+	box-shadow 0 0 30px -2px rgba(0,0,0,.2)
+	
+.a-all-goods-table__description_number
+	color fontg
+	font-size 14px
+	font-family HelveticaRoman
+	padding 15px 0 10px
+	
+.a-all-goods-table__description_info
+	font-size 16px
+	font-family HelveticaRoman
+	
+.a-hidden-block
+	display none
+	position absolute
+	width 550px
+	align-items flex-start
+	justify-content space-between
+	top 5px
+	left 5px
+	padding 40px 
+	background #fff
+	flex-direction row-reverse
+
+.a-hidden-block img 
+	box-shadow 0 0 30px -2px rgba(0,0,0,.2)
+	width 210px
+
+.a-hidden-block__description
+	padding 0 70px 0 0 
+	white-space nowrap
+
+.a-hidden-block__description__outer
+	padding-bottom 30px
+	position relative 
+	&:after 
+		content ""
+		position absolute
+		width 95px
+		height 2px
+		background #000
+		bottom 20px
+		left -60px
+		
+	
+.a-hidden-block__description-link
+	font-family HelveticaRoman
+	font-size 14px
+	display block
+	padding-bottom 10px
+	
+.a-hidden-block__description-link i 
+	color fontg
+	padding-bottom 3px
+	display inline-block
+
+.a-hidden-block__description-link span 
+	display block
+	
+.a-hidden-block__description .a-old-price
+	padding-bottom 5px
+
+.a-hidden-block__img-outer
+	position relative 
+	&:before 
+		content ""
+		background url('../img/sprite.png')
+		left -64px
+		top 80px
+		width 97px
+		height 90px
+		z-index 1
+		position absolute
+		background-position -472px 90px
+
+
+.a-description-of-delivery
+	width w 
+	margin 0px auto 40px 
+	display flex 
+	justify-content space-between
+	align-items center
+	
+.a-description-of-delivery p 
+	display block
+	padding 5px 0
+	color fontg
+
+.a-description-of-delivery a 
+	font-size 22px
+	font-family HelveticaThin
+	color reds
+	border-bottom 1px solid 1px solid rgba(252, 57, 44, 0.26)
+	padding-bottom 2px
+	&:hover 
+		border-bottom 1px solid 1px solid rgba(252, 57, 44, 0)
+
+.a-description-of-delivery p span 
+	color #000
+	
+
+@media screen and (max-width: 1024px)
+	.a-all-goods-table
+		width 100%
+		padding 5px
+	
+	.a-all-goods-table__item
+		width 25%
+
+	.a-head-font-left-side
+		width 100%
+		text-align center
+		padding 70px 0 30px
+		&:before
+			right 30px
+
+@media screen and (max-width: 850px)	
+	.a-all-goods-table
+		width 100%
+		padding 5px 50px
+		
+	.a-all-goods-table__item
+		width 50%
+		&:hover
+			z-index 10
+		&:hover .a-hidden-block
+			display block
+			animation-name none
+		
+	.a-all-goods-table__description_number
+		font-size 25px
+		font-family HelveticaThin
+	
+	.a-all-goods-table__description_info
+		font-size 45px
+		font-family HelveticaThin
+		
+	.a-head-font-left-side
+		padding 70px 0 30px
+		
+	.a-hidden-block
+		display block
+		opacity 1
+		position relative
+	
+	.a-hidden-block__img-outer:before
+		display none
+
+	.a-hidden-block__img-outer img 
+		display none
+	
+	.a-hidden-block__description-link
+		font-family HelveticaThin
+		font-size 28px
+		display block
+		padding-bottom 12px
+		
+
+	@media screen and (max-width: 600px)
+		.a-all-goods-table
+			width 100%
+			justify-content center
+			padding 5px
+			
+		.a-all-goods-table__item
+			width 80%

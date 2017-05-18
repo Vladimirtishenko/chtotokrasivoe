@@ -1,0 +1,38 @@
+extends layout_manage
+
+block content
+	.che-items-print-controls
+		button.che-print-button(onclick="window.print()")
+			| Распечатать страницу 
+
+	h1.che-items-print-heading Товары участвующие в аукционе
+
+	table.che-print-items
+		tr.pagebreak
+			th
+				p Артикл
+			th
+				p Наименование
+			th 
+				p Колличество
+			th 
+				p Цвет
+			th
+				p Размер
+		each item in data
+			- var atr = decodeURIComponent(item.art);
+			- var title = decodeURIComponent(item.title);
+			- var src = decodeURIComponent(item.src);
+			- var color = decodeURIComponent(item.color);
+			- var size = decodeURIComponent(item.size);
+			tr.pagebreak
+				td 
+					p=atr
+				td
+					p=title
+				td
+					p=item.countInWarehouse
+				td
+					p=color
+				td
+					p=size

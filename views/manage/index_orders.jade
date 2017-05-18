@@ -1,0 +1,22 @@
+extends layout_manage
+
+block content
+	.a-conteiner-flexible-fixed
+		span.a-modal-close
+	include ./header
+	.a-table-admin.__a-for-orders(data-load="/orderAdminLoads" data-template="orders")
+		.a-container-search
+			.a-search-box
+				input#a-search-admin(type='text', name='search', placeholder='Поиск заказа')
+			p Искать по номеру заказа или фамилии
+		.a-container-search
+			.a-search-box
+				select(id="a-search-admin__select" class="a-search-box__select" name="status")
+					option(value="0") Не оплачен
+					option(value="1") Оплачен
+					option(value="2") Выполнен
+					option(value="3") Отменен
+			p Сортировка по статусам
+		h1.a-head-font-left-side Заказы
+		view.a-all-goods-table
+	include ../footer
