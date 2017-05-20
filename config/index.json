@@ -1,17 +1,17 @@
 {
-	"port": 3090,
+	"port": 3100,
 	"mongoose": {
-		"uri": "mongodb://localhost/checheluka"
+		"uri": "mongodb://localhost/chtotokrasivoe"
 	},
 	"db": {
-		"db": "checheluka",
+		"db": "chtotokrasivoe",
 		"host": "localhost",
 		"port": "27017",
-		"url": "mongodb://localhost/checheluka"
+		"url": "mongodb://localhost/chtotokrasivoe"
 	},
 	"message": {
-		"email": "sale@chechelyka-auction.com",
-		"smtp": "chechelyka-auction.com",
+		"email": "sale@chtotokrasivoe-auction.com",
+		"smtp": "chtotokrasivoe-auction.com",
 		"pass": "Yazq_836"
 	},
 	"secret": "secret_key1123sdasjfasu",

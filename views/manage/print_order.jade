@@ -26,12 +26,12 @@ block content
 						i На сумму: 
 						span 
 							input(type="number" min="1" value=data.priceCommon)
-						i руб.
+						i грн.
 					p.che-flex-print
 						i Сумма доставки:
 						span 
 							input(type="number" min="0" value='')
-						i руб.
+						i грн.
 
 				.a-privat-table.a-privat-table__bought.a-privat-table__orders
 					.a-privat-table__info_order
@@ -52,13 +52,13 @@ block content
 										td=goods.size
 										td=goods.color
 										td=goods.count
-										td=goods.price + " руб."
+										td=goods.price + " грн."
 								tr
 									td -
 									td -
 									td -
 									td=count
-									td=data.priceCommon + " руб."
+									td=data.priceCommon + " грн."
 					.a-privat-table__user
 						h5 Информация о заказе:
 						table
@@ -93,7 +93,7 @@ block content
 				p.che-flex-print
 					span 
 						input(type="number" min="0" value='')
-					i руб.	
+					i грн.	
 			
 		
 		form.a-wrapp-details(id="delivery_page")
@@ -128,7 +128,7 @@ block content
 				input(type="hidden" id="order" name="orderId" value=data.id)
 				input(type="hidden" name="email" value=data.email)
 				textarea(required name="html_msg" class="a-textarea-field-to-send" rows="20")
-					p Добрый день !{decodeURIComponent(data.fio)}! Сумма к оплате по Вашему заказу: !{data.priceCommon} руб.
+					p Добрый день !{decodeURIComponent(data.fio)}! Сумма к оплате по Вашему заказу: !{data.priceCommon} грн.
 					p Номер Вашего заказа: !{data.orderNumber}
 					p Реквизиты для оплаты:
 					p Карта Сбербанка

@@ -62,7 +62,7 @@ module.exports.get = function(req, res, next) {
             }
 
             res.render(view, {
-                title: "Chechelyka - Модные аукционы",
+                title: "Что-то красивое - Модные аукционы",
                 bucketPrice: result.data.priseSum,
                 bucketCount: result.data.count,
                 date: result.data.date || "",
@@ -104,7 +104,7 @@ module.exports.get = function(req, res, next) {
                         console.log(req.session.timeDiff);
 
                         res.render(view, {
-                            title: "Chechelyka - Модные аукционы",
+                            title: "Что-то красивое - Модные аукционы",
                             date: data.data || "",
                             rules: data.rules,
                             auctions_info: data.auctions_info,

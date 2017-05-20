@@ -5,8 +5,7 @@ block content
 		.a-flexed-block-main__item
 			include header.jade
 			.a-privat-block-top
-				.a-general-goods.__in_flex_wrap.__background_left
-					span.a-triangle__pseudo
+				.a-general-goods.a-general-goods__private-area.__in_flex_wrap.__background_left
 					- if (data && data.length > 0) 
 						h1.a-head-font-left-side.__in_flex Корзина
 						- var allcount = 0;
@@ -41,13 +40,13 @@ block content
 												| шт.
 										p Стоимость
 											span #{item.finalePrice * item.count}
-												| руб.
+												| грн.
 									input(type="hidden" data-count=item.count 	data-price=item.finalePrice * item.count data-title=title data-size=size data-image=img data-color=color data-art=art)
 						.a-privat-price-to-change
 							.a-privat-table__all-price
 								p.a-privat-table__all-price_text Общая стоимость:
 								p.a-privat-table__all-price_price #{allcount} 
-									| руб.
+									| грн.
 							.a-privat-table__all-price
 								button.a-button-black.a-button-to-submits-order(data-attr="order")
 									| Оформить заказ
@@ -67,7 +66,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{orderBase.priceCommon} 
-									| руб.
+									| грн.
 						-var ob = orderBase.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -92,7 +91,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| руб.
+											| грн.
 				
 
 			- if(ordersPaid)
@@ -109,7 +108,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemP.priceCommon} 
-									| руб.
+									| грн.
 						-var ob = itemP.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -134,7 +133,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| руб.
+											| грн.
 
 			- if(ordersProcessed)
 				h1.a-head-font-left-side Обработанные заказы
@@ -150,7 +149,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| руб.
+									| грн.
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -175,7 +174,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| руб.
+											| грн.
 
 			
 			- if(ordersSuccess)
@@ -192,7 +191,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| руб.
+									| грн.
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -217,7 +216,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| руб.
+											| грн.
 
 
 			- if(ordersCancel)
@@ -234,7 +233,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| руб.
+									| грн.
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -259,5 +258,5 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| руб.
+											| грн.
 		include footer.jade

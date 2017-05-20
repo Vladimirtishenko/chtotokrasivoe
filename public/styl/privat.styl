@@ -110,11 +110,15 @@
 	&:nth-child(2n + 2):after 
 		content ""
 		position absolute
-		width 100px
-		height 100px
 		background url('../img/sprite.png') -483px -293px
-		left -102px
-	
+		width 215px
+		height 405px
+		background-position 0 0
+		z-index -1
+		right -150px
+		top 0px
+
+
 .a-privat-table_bought__number
 	display flex 
 	align-items center
@@ -145,6 +149,18 @@
 .a-privat-block-top .a-hidden-block__description-link span, .a-privat-table_bought .a-hidden-block__description-link span
 	display inline-block i 
 	padding 0 10px i
+
+.a-general-goods__private-area
+	position relative
+	&:after 
+		bottom 0
+		left 0
+		content ""
+		position absolute
+		width 500px
+		height 200px
+		background url('../img/sprite.png')
+		background-position -300px -510px
 
 
 @media screen and (max-width: 1024px)

@@ -9,25 +9,26 @@
 	width 20%
 	padding 5px 5px 40px 5px
 	position relative
-	&:nth-child(10n+1):before
+	&:nth-child(10n+5):before
 		content ""
 		position absolute
-		width 270px
-		height 180px
-		background-image url('../img/triangle.jpg')
-		z-index -1
-		left -143px
-		top -14px
-	&:nth-child(10n+10):after
-		content ""
-		position absolute
-		width 112px
-		height 50px
+		width 215px
+		height 405px
 		background-image url('../img/sprite.png')
-		background-position -474px -6px
+		background-position 0 0
 		z-index -1
-		right -135px
-		top 90px
+		right -150px
+		top 240px
+	&:nth-child(10n+6):after
+		content ""
+		position absolute
+		width 110px
+		height 225px
+		background-position -220px 0
+		z-index -1
+		left -100px
+		top 65px
+		background-image url('../img/sprite.png')
 	&:nth-child(5n+4) .a-hidden-block
 		right 0
 		left inherit
@@ -111,13 +112,13 @@
 	&:before 
 		content ""
 		background url('../img/sprite.png')
-		left -64px
+		left -78px
 		top 80px
-		width 97px
-		height 90px
+		width 79px
+		height 186px
 		z-index 1
 		position absolute
-		background-position -472px 90px
+		background-position -222px 0px
 
 
 .a-description-of-delivery
@@ -135,11 +136,11 @@
 .a-description-of-delivery a 
 	font-size 22px
 	font-family HelveticaThin
-	color reds
-	border-bottom 1px solid 1px solid rgba(252, 57, 44, 0.26)
+	color darkPath
+	border-bottom 1px solid 1px solid rgba(90,44,86, 0.26)
 	padding-bottom 2px
 	&:hover 
-		border-bottom 1px solid 1px solid rgba(252, 57, 44, 0)
+		border-bottom 1px solid 1px solid rgba(90,44,86, 0)
 
 .a-description-of-delivery p span 
 	color #000

@@ -138,6 +138,9 @@ input, select
 button 
   border none
 
+body 
+  background background
+
 .a-main
   position relative
   width 100%
@@ -147,7 +150,7 @@ button
   font-size 10px
   
 .a-button-black
-  background rgba(21,163,153,1)
+  background rgba(90,44,86,1)
   text-transform uppercase
   color #fff
   font-size 30px
@@ -157,7 +160,7 @@ button
   line-height 13px
   transition all .4s ease-out
   cursor pointer
-  border 2px solid rgba(21,163,153,1)
+  border 2px solid rgba(90,44,86,1)
   &:hover 
     color #000
     background rgba(0,0,0,0)
@@ -231,16 +234,6 @@ button
   position relative
   text-align left
   font-family HelveticaThin
-  &:before
-    content ""
-    position absolute
-    width 112px
-    height 50px
-    background-image url('../img/sprite.png')
-    background-position -474px -199px
-    z-index 1
-    right -55px
-    top 30px
     
 .__in_flex
   width 100%
@@ -336,7 +329,7 @@ button
 
 .a-classic-button-all-lots
   margin 0 auto 30px
-  border 2px solid green
+  border 2px solid darkPath
   display block 
   background transparent
   transition .5s
@@ -346,17 +339,8 @@ button
   cursor pointer
   letter-spacing 1px
   position relative
-  &:before
-    content ""
-    position absolute
-    width 95px
-    height 95px
-    left -53px
-    top -49px
-    background-image url('../img/sprite.png')
-    background-position -483px -293px
   &:hover 
-    border 2px solid pink
+    border 2px solid lightPath
 
 @keyframes opacity{
   0%{

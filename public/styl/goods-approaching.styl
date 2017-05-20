@@ -11,11 +11,26 @@
 .a-head-font 
 	padding 50px 0
 	font-size 50px
-	width 100%
 	text-align center
 	font-family HelveticaThin
 	position relative
-	z-index 1	
+	z-index 1
+	display table 
+	margin 0 auto
+	&:before 
+		content ""
+		position absolute
+		right 100%
+		width 120px
+		height 50px
+		background url('../img/sprite.png') -475px -75px
+	&:after 
+		content ""	
+		position absolute
+		left 101%
+		width 120px
+		height 50px
+		background url('../img/sprite.png') -475px -8px
 
 .a-goods__item__reisizers
 	width 100%
@@ -43,15 +58,6 @@
 
 .a-resizer-masonry
 	position relative
-
-.__with-triangle-left-medium .a-resizer-masonry:before
-		position absolute
-		content ""
-		width 270px
-		height 180px
-		background url('../img/triangle.jpg')
-		left -190px
-		top 137px
 
 .__without-triangle-left-min img
 	width 144px
@@ -108,13 +114,13 @@
 
 .__with-waves-rigth-high .a-resizer-masonry:before
 		content ""
-		background url('../img/sprite.png')
-		width 107px
-		height 50px
+		background-image url('../img/sprite.png')
+		width 300px
+		height 315px
 		position absolute
-		right -50px
-		top -20px
-		background-position -477px -8px
+		left -155px
+		bottom -161px
+		background-position 0px -450px
 
 .__with-waves-rigth-high.a-add-new-background:before
 	content ""

@@ -12,7 +12,7 @@ module.exports.get = function(req, res, next) {
         ], function(err, result) {
         	if(err) next(err);
         	res.render('index_config', {
-	            title: "Checheluka Admin",
+	            title: "Что-то красивое панель администратора",
 	            params: result.date,
 	            users: result.users
 	        });

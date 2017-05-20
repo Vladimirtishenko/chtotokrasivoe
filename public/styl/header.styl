@@ -1,9 +1,11 @@
 .a-head
+	background-image url('../img/header.png')
 	width 100%
 	height 125px
 	position relative
+	background-position 50%
 	z-index 11
-	background-image url('../img/header.png')
+	background-size auto 100px
 	background-repeat repeat-x
 
 .a-button-mobile-menu
@@ -28,29 +30,22 @@
 	align-items center
 	padding 0 20px 0 0
 
+.a-link-logo
+	& img
+		width 420px
+
 .a-side-logo p, .a-side-logo p span
-	font-size 14px i
+	font-size 12px i
 	font-family HelveticaRoman i
 
 .a-side-logo .a-auction-info-text 
 	font-size 12px
 	font-family HelveticaRoman
 	margin-top -20px
-	padding-left 36px
+	padding-left 16px
 	position relative
 	line-height 18px
 	color fontg
-	&:before
-		content ""
-		position absolute
-		width 0
-		height 0
-		border-style solid
-		top 8px
-		line-height 18px
-		border-width 8.5px 0 8.5px 13px
-		border-color transparent transparent transparent #ffb121
-		left 13px
 	&:hover .a-tooltip-info
 		display block
 
@@ -60,18 +55,18 @@
 	background #fff
 	z-index 9
 	padding 20px
-	border 2px solid #ffca10
+	border 2px solid darkPath
 	&:before 
+		background url('../img/sprite.png')
 		content ""
 		position absolute
-		width 99px
+		width 103px
 		display block
 		z-index -1
 		bottom 0
-		height 101px
-		right -3px
-		background url('../img/sprite.png')
-		background-position -440px -399px
+		height 201px
+		right 0px
+		background-position -221px 0px
 
 .a-menu-item
 	position absolute
@@ -80,7 +75,7 @@
 	z-index 1
 	
 .a-side-backet__image
-	background-color #000
+	background-color darkPath
 	position relative
 	padding 50px 5px 8px
 	display block
@@ -108,7 +103,7 @@
 	padding 15px 15px 0 15px
 	position absolute
 	text-align center
-	background green
+	background darkPath
 	color #fff
 	bottom -45px
 	left 50%

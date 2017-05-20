@@ -42,13 +42,13 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(1);
 
-	var _socket = __webpack_require__(15);
+	var _socket = __webpack_require__(13);
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -102,13 +102,13 @@
 		new _zoomImg2.default(document.querySelector('.a-zoom-container'));
 	});
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
-/***/ },
+/***/ }),
 /* 2 */,
 /* 3 */,
 /* 4 */,
@@ -120,10 +120,8 @@
 /* 10 */,
 /* 11 */,
 /* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -133,7 +131,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -145,7 +143,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var io = __webpack_require__(17);
+	var io = __webpack_require__(15);
 
 	var Sockets = function (_Helper) {
 		_inherits(Sockets, _Helper);
@@ -261,9 +259,9 @@
 
 	exports.default = Sockets;
 
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -396,19 +394,19 @@
 
 	exports.default = Helper;
 
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
 	 * Module dependencies.
 	 */
 
-	var url = __webpack_require__(18);
-	var parser = __webpack_require__(24);
-	var Manager = __webpack_require__(35);
-	var debug = __webpack_require__(20)('socket.io-client');
+	var url = __webpack_require__(16);
+	var parser = __webpack_require__(22);
+	var Manager = __webpack_require__(33);
+	var debug = __webpack_require__(18)('socket.io-client');
 
 	/**
 	 * Module exports.
@@ -507,21 +505,21 @@
 	 * @api public
 	 */
 
-	exports.Manager = __webpack_require__(35);
-	exports.Socket = __webpack_require__(62);
+	exports.Manager = __webpack_require__(33);
+	exports.Socket = __webpack_require__(61);
 
 
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/**
 	 * Module dependencies.
 	 */
 
-	var parseuri = __webpack_require__(19);
-	var debug = __webpack_require__(20)('socket.io-client:url');
+	var parseuri = __webpack_require__(17);
+	var debug = __webpack_require__(18)('socket.io-client:url');
 
 	/**
 	 * Module exports.
@@ -593,9 +591,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 19 */
-/***/ function(module, exports) {
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Parses an URI
@@ -638,9 +636,9 @@
 	};
 
 
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {
 	/**
@@ -649,7 +647,7 @@
 	 * Expose `debug()` as the module.
 	 */
 
-	exports = module.exports = __webpack_require__(22);
+	exports = module.exports = __webpack_require__(20);
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -820,11 +818,11 @@
 	  } catch (e) {}
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)))
 
-/***/ },
-/* 21 */
-/***/ function(module, exports) {
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
@@ -996,6 +994,10 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -1008,9 +1010,9 @@
 	process.umask = function() { return 0; };
 
 
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -1025,7 +1027,7 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
-	exports.humanize = __webpack_require__(23);
+	exports.humanize = __webpack_require__(21);
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -1214,9 +1216,9 @@
 	}
 
 
-/***/ },
-/* 23 */
-/***/ function(module, exports) {
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Helpers.
@@ -1369,20 +1371,20 @@
 	}
 
 
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
 	 * Module dependencies.
 	 */
 
-	var debug = __webpack_require__(25)('socket.io-parser');
-	var json = __webpack_require__(28);
-	var Emitter = __webpack_require__(31);
-	var binary = __webpack_require__(32);
-	var isBuf = __webpack_require__(34);
+	var debug = __webpack_require__(23)('socket.io-parser');
+	var json = __webpack_require__(26);
+	var Emitter = __webpack_require__(29);
+	var binary = __webpack_require__(30);
+	var isBuf = __webpack_require__(32);
 
 	/**
 	 * Protocol version.
@@ -1779,9 +1781,9 @@
 	}
 
 
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -1790,7 +1792,7 @@
 	 * Expose `debug()` as the module.
 	 */
 
-	exports = module.exports = __webpack_require__(26);
+	exports = module.exports = __webpack_require__(24);
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -1953,9 +1955,9 @@
 	}
 
 
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -1970,7 +1972,7 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
-	exports.humanize = __webpack_require__(27);
+	exports.humanize = __webpack_require__(25);
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -2156,9 +2158,9 @@
 	}
 
 
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Helpers.
@@ -2287,15 +2289,15 @@
 	}
 
 
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 	;(function () {
 	  // Detect the `define` function exposed by asynchronous module loaders. The
 	  // strict `define` check is necessary for compatibility with `r.js`.
-	  var isLoader = "function" === "function" && __webpack_require__(30);
+	  var isLoader = "function" === "function" && __webpack_require__(28);
 
 	  // A set of types used to distinguish objects from primitives.
 	  var objectTypes = {
@@ -3194,11 +3196,11 @@
 	  }
 	}).call(this);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)(module), (function() { return this; }())))
 
-/***/ },
-/* 29 */
-/***/ function(module, exports) {
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
 
 	module.exports = function(module) {
 		if(!module.webpackPolyfill) {
@@ -3212,17 +3214,17 @@
 	}
 
 
-/***/ },
-/* 30 */
-/***/ function(module, exports) {
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
-/***/ },
-/* 31 */
-/***/ function(module, exports) {
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -3390,9 +3392,9 @@
 	};
 
 
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*global Blob,File*/
 
@@ -3400,8 +3402,8 @@
 	 * Module requirements
 	 */
 
-	var isArray = __webpack_require__(33);
-	var isBuf = __webpack_require__(34);
+	var isArray = __webpack_require__(31);
+	var isBuf = __webpack_require__(32);
 
 	/**
 	 * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -3538,18 +3540,18 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 33 */
-/***/ function(module, exports) {
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
 
 	module.exports = Array.isArray || function (arr) {
 	  return Object.prototype.toString.call(arr) == '[object Array]';
 	};
 
 
-/***/ },
-/* 34 */
-/***/ function(module, exports) {
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
 	module.exports = isBuf;
@@ -3567,23 +3569,23 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
 	 * Module dependencies.
 	 */
 
-	var eio = __webpack_require__(36);
-	var Socket = __webpack_require__(62);
-	var Emitter = __webpack_require__(53);
-	var parser = __webpack_require__(24);
-	var on = __webpack_require__(64);
-	var bind = __webpack_require__(65);
-	var debug = __webpack_require__(20)('socket.io-client:manager');
-	var indexOf = __webpack_require__(60);
+	var eio = __webpack_require__(34);
+	var Socket = __webpack_require__(61);
+	var Emitter = __webpack_require__(52);
+	var parser = __webpack_require__(22);
+	var on = __webpack_require__(63);
+	var bind = __webpack_require__(64);
+	var debug = __webpack_require__(18)('socket.io-client:manager');
+	var indexOf = __webpack_require__(59);
 	var Backoff = __webpack_require__(67);
 
 	/**
@@ -4133,20 +4135,20 @@
 	};
 
 
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(37);
+	module.exports = __webpack_require__(35);
 
 
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(38);
+	module.exports = __webpack_require__(36);
 
 	/**
 	 * Exports parser
@@ -4154,25 +4156,25 @@
 	 * @api public
 	 *
 	 */
-	module.exports.parser = __webpack_require__(45);
+	module.exports.parser = __webpack_require__(43);
 
 
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
-	var transports = __webpack_require__(39);
-	var Emitter = __webpack_require__(53);
-	var debug = __webpack_require__(20)('engine.io-client:socket');
-	var index = __webpack_require__(60);
-	var parser = __webpack_require__(45);
-	var parseuri = __webpack_require__(19);
-	var parsejson = __webpack_require__(61);
-	var parseqs = __webpack_require__(54);
+	var transports = __webpack_require__(37);
+	var Emitter = __webpack_require__(52);
+	var debug = __webpack_require__(18)('engine.io-client:socket');
+	var index = __webpack_require__(59);
+	var parser = __webpack_require__(43);
+	var parseuri = __webpack_require__(17);
+	var parsejson = __webpack_require__(60);
+	var parseqs = __webpack_require__(53);
 
 	/**
 	 * Module exports.
@@ -4304,9 +4306,9 @@
 	 */
 
 	Socket.Socket = Socket;
-	Socket.Transport = __webpack_require__(44);
-	Socket.transports = __webpack_require__(39);
-	Socket.parser = __webpack_require__(45);
+	Socket.Transport = __webpack_require__(42);
+	Socket.transports = __webpack_require__(37);
+	Socket.parser = __webpack_require__(43);
 
 	/**
 	 * Creates transport of the given type.
@@ -4902,18 +4904,18 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies
 	 */
 
-	var XMLHttpRequest = __webpack_require__(40);
-	var XHR = __webpack_require__(42);
-	var JSONP = __webpack_require__(57);
-	var websocket = __webpack_require__(58);
+	var XMLHttpRequest = __webpack_require__(38);
+	var XHR = __webpack_require__(40);
+	var JSONP = __webpack_require__(56);
+	var websocket = __webpack_require__(57);
 
 	/**
 	 * Export transports.
@@ -4962,13 +4964,13 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {// browser shim for xmlhttprequest module
 
-	var hasCORS = __webpack_require__(41);
+	var hasCORS = __webpack_require__(39);
 
 	module.exports = function (opts) {
 	  var xdomain = opts.xdomain;
@@ -5006,9 +5008,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 41 */
-/***/ function(module, exports) {
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -5029,19 +5031,19 @@
 	}
 
 
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module requirements.
 	 */
 
-	var XMLHttpRequest = __webpack_require__(40);
-	var Polling = __webpack_require__(43);
-	var Emitter = __webpack_require__(53);
-	var inherit = __webpack_require__(55);
-	var debug = __webpack_require__(20)('engine.io-client:polling-xhr');
+	var XMLHttpRequest = __webpack_require__(38);
+	var Polling = __webpack_require__(41);
+	var Emitter = __webpack_require__(52);
+	var inherit = __webpack_require__(54);
+	var debug = __webpack_require__(18)('engine.io-client:polling-xhr');
 
 	/**
 	 * Module exports.
@@ -5460,20 +5462,20 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var Transport = __webpack_require__(44);
-	var parseqs = __webpack_require__(54);
-	var parser = __webpack_require__(45);
-	var inherit = __webpack_require__(55);
-	var yeast = __webpack_require__(56);
-	var debug = __webpack_require__(20)('engine.io-client:polling');
+	var Transport = __webpack_require__(42);
+	var parseqs = __webpack_require__(53);
+	var parser = __webpack_require__(43);
+	var inherit = __webpack_require__(54);
+	var yeast = __webpack_require__(55);
+	var debug = __webpack_require__(18)('engine.io-client:polling');
 
 	/**
 	 * Module exports.
@@ -5486,7 +5488,7 @@
 	 */
 
 	var hasXHR2 = (function () {
-	  var XMLHttpRequest = __webpack_require__(40);
+	  var XMLHttpRequest = __webpack_require__(38);
 	  var xhr = new XMLHttpRequest({ xdomain: false });
 	  return null != xhr.responseType;
 	})();
@@ -5711,16 +5713,16 @@
 	};
 
 
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(45);
-	var Emitter = __webpack_require__(53);
+	var parser = __webpack_require__(43);
+	var Emitter = __webpack_require__(52);
 
 	/**
 	 * Module exports.
@@ -5874,23 +5876,23 @@
 	};
 
 
-/***/ },
-/* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
-	var keys = __webpack_require__(46);
-	var hasBinary = __webpack_require__(47);
-	var sliceBuffer = __webpack_require__(48);
-	var after = __webpack_require__(49);
-	var utf8 = __webpack_require__(50);
+	var keys = __webpack_require__(44);
+	var hasBinary = __webpack_require__(45);
+	var sliceBuffer = __webpack_require__(47);
+	var after = __webpack_require__(48);
+	var utf8 = __webpack_require__(49);
 
 	var base64encoder;
 	if (global && global.ArrayBuffer) {
-	  base64encoder = __webpack_require__(51);
+	  base64encoder = __webpack_require__(50);
 	}
 
 	/**
@@ -5948,7 +5950,7 @@
 	 * Create a blob api even for blob builder when vendor prefixes exist
 	 */
 
-	var Blob = __webpack_require__(52);
+	var Blob = __webpack_require__(51);
 
 	/**
 	 * Encodes a packet.
@@ -6490,9 +6492,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 46 */
-/***/ function(module, exports) {
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -6515,16 +6517,16 @@
 	};
 
 
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/*
 	 * Module requirements.
 	 */
 
-	var isArray = __webpack_require__(33);
+	var isArray = __webpack_require__(46);
 
 	/**
 	 * Module exports.
@@ -6580,9 +6582,18 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 48 */
-/***/ function(module, exports) {
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+	module.exports = Array.isArray || function (arr) {
+	  return Object.prototype.toString.call(arr) == '[object Array]';
+	};
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
 
 	/**
 	 * An abstraction for slicing an arraybuffer even when
@@ -6615,9 +6626,9 @@
 	};
 
 
-/***/ },
-/* 49 */
-/***/ function(module, exports) {
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
 
 	module.exports = after
 
@@ -6649,9 +6660,9 @@
 	function noop() {}
 
 
-/***/ },
-/* 50 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/wtf8 v1.0.0 by @mathias */
 	;(function(root) {
@@ -6886,11 +6897,11 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)(module), (function() { return this; }())))
 
-/***/ },
-/* 51 */
-/***/ function(module, exports) {
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
 
 	/*
 	 * base64-arraybuffer
@@ -6961,9 +6972,9 @@
 	})();
 
 
-/***/ },
-/* 52 */
-/***/ function(module, exports) {
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Create a blob builder even when vendor prefixes exist
@@ -7064,9 +7075,9 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
@@ -7233,9 +7244,9 @@
 	};
 
 
-/***/ },
-/* 54 */
-/***/ function(module, exports) {
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Compiles a querystring
@@ -7276,9 +7287,9 @@
 	};
 
 
-/***/ },
-/* 55 */
-/***/ function(module, exports) {
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
 
 	
 	module.exports = function(a, b){
@@ -7288,9 +7299,9 @@
 	  a.prototype.constructor = a;
 	};
 
-/***/ },
-/* 56 */
-/***/ function(module, exports) {
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -7362,17 +7373,17 @@
 	module.exports = yeast;
 
 
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/**
 	 * Module requirements.
 	 */
 
-	var Polling = __webpack_require__(43);
-	var inherit = __webpack_require__(55);
+	var Polling = __webpack_require__(41);
+	var inherit = __webpack_require__(54);
 
 	/**
 	 * Module exports.
@@ -7600,25 +7611,25 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
-	var Transport = __webpack_require__(44);
-	var parser = __webpack_require__(45);
-	var parseqs = __webpack_require__(54);
-	var inherit = __webpack_require__(55);
-	var yeast = __webpack_require__(56);
-	var debug = __webpack_require__(20)('engine.io-client:websocket');
+	var Transport = __webpack_require__(42);
+	var parser = __webpack_require__(43);
+	var parseqs = __webpack_require__(53);
+	var inherit = __webpack_require__(54);
+	var yeast = __webpack_require__(55);
+	var debug = __webpack_require__(18)('engine.io-client:websocket');
 	var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 	var NodeWebSocket;
 	if (typeof window === 'undefined') {
 	  try {
-	    NodeWebSocket = __webpack_require__(59);
+	    NodeWebSocket = __webpack_require__(58);
 	  } catch (e) { }
 	}
 
@@ -7892,15 +7903,15 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 59 */
-/***/ function(module, exports) {
+/***/ }),
+/* 58 */
+/***/ (function(module, exports) {
 
 	/* (ignored) */
 
-/***/ },
-/* 60 */
-/***/ function(module, exports) {
+/***/ }),
+/* 59 */
+/***/ (function(module, exports) {
 
 	
 	var indexOf = [].indexOf;
@@ -7913,9 +7924,9 @@
 	  return -1;
 	};
 
-/***/ },
-/* 61 */
-/***/ function(module, exports) {
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * JSON parse.
@@ -7951,22 +7962,22 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	/**
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(24);
-	var Emitter = __webpack_require__(53);
-	var toArray = __webpack_require__(63);
-	var on = __webpack_require__(64);
-	var bind = __webpack_require__(65);
-	var debug = __webpack_require__(20)('socket.io-client:socket');
-	var hasBin = __webpack_require__(66);
+	var parser = __webpack_require__(22);
+	var Emitter = __webpack_require__(52);
+	var toArray = __webpack_require__(62);
+	var on = __webpack_require__(63);
+	var bind = __webpack_require__(64);
+	var debug = __webpack_require__(18)('socket.io-client:socket');
+	var hasBin = __webpack_require__(65);
 
 	/**
 	 * Module exports.
@@ -8376,9 +8387,9 @@
 	};
 
 
-/***/ },
-/* 63 */
-/***/ function(module, exports) {
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
 
 	module.exports = toArray
 
@@ -8395,9 +8406,9 @@
 	}
 
 
-/***/ },
-/* 64 */
-/***/ function(module, exports) {
+/***/ }),
+/* 63 */
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -8425,9 +8436,9 @@
 	}
 
 
-/***/ },
-/* 65 */
-/***/ function(module, exports) {
+/***/ }),
+/* 64 */
+/***/ (function(module, exports) {
 
 	/**
 	 * Slice reference.
@@ -8454,16 +8465,16 @@
 	};
 
 
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/*
 	 * Module requirements.
 	 */
 
-	var isArray = __webpack_require__(33);
+	var isArray = __webpack_require__(66);
 
 	/**
 	 * Module exports.
@@ -8520,9 +8531,18 @@
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+	module.exports = Array.isArray || function (arr) {
+	  return Object.prototype.toString.call(arr) == '[object Array]';
+	};
+
+
+/***/ }),
 /* 67 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	
 	/**
@@ -8611,9 +8631,9 @@
 
 
 
-/***/ },
+/***/ }),
 /* 68 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -8623,7 +8643,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -8793,9 +8813,9 @@
 
 	exports.default = Modal;
 
-/***/ },
+/***/ }),
 /* 69 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -8842,9 +8862,9 @@
 
 	exports.default = new ErrorCode();
 
-/***/ },
+/***/ }),
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -8856,7 +8876,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -8943,7 +8963,7 @@
 
 				var win = pretendents && Object.keys(pretendents).length || 0;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Купили <span>' + count + ' ед.</span> по <span> ' + price + ' руб/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : this.chatTemplateUsers(pretendents)) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Купили <span>' + count + ' ед.</span> по <span> ' + price + ' грн/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : this.chatTemplateUsers(pretendents)) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -8955,7 +8975,7 @@
 
 				var win = Object.keys(pretendents).length;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Сделана ставка <span>' + count + 'ед.</span> по<span> ' + price + ' руб/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : win < 10 ? this.chatTemplateUsers(pretendents) : 'Количество желающих: ' + win) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Сделана ставка <span>' + count + 'ед.</span> по<span> ' + price + ' грн/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : win < 10 ? this.chatTemplateUsers(pretendents) : 'Количество желающих: ' + win) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -8966,7 +8986,7 @@
 
 				var win = Object.keys(pretendents).length;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Готовы купить <span>' + count + ' ед.</span> по<span> ' + price + ' руб/ед</span></p>' + ' <p class="a-block-with-proposal__user">' + "Участвуют: <br />" + '</p>' + '<p class="a-block-with-proposal__user">' + this.chatTemplateUsers(pretendents) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Готовы купить <span>' + count + ' ед.</span> по<span> ' + price + ' грн/ед</span></p>' + ' <p class="a-block-with-proposal__user">' + "Участвуют: <br />" + '</p>' + '<p class="a-block-with-proposal__user">' + this.chatTemplateUsers(pretendents) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -9000,9 +9020,9 @@
 
 	exports.default = Chat;
 
-/***/ },
+/***/ }),
 /* 71 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9012,7 +9032,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9186,9 +9206,9 @@
 
 	exports.default = Zoom;
 
-/***/ },
+/***/ }),
 /* 72 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9198,7 +9218,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9521,9 +9541,9 @@
 
 	exports.default = AsyncLoad;
 
-/***/ },
+/***/ }),
 /* 73 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -9543,13 +9563,13 @@
 		_createClass(Template, [{
 			key: 'getCurrentAuction',
 			value: function getCurrentAuction(id, obj, price, timer, count, difference) {
-				return '<div class="a-general-goods a-animates-top-goods">' + '<div class="a-general-goods__image">' + '<span class="a-general-number__this_main">№' + id + '</span>' + '<div class="a-img-scale">' + '<img src="' + decodeURIComponent(obj.src) + '" alt="" class="a-image-to-zoom" data-number="' + id + '" />' + '</div>' + '</div>' + '<div class="a-general-goods__description">' + '<p class="a-general-goods__description_in-warehouse a-min-size-font">На складе: <span>' + decodeURIComponent(obj.countInWarehouse) + ' ед.</span></p>' + '<h2 class="a-general-goods__description_title">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</h2>' + '<div class="a-general-goods__description_description">' + decodeURIComponent(obj.description) + '</div>' + '<div class="a-general-goods__description_info">' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Размер:</i>' + '<span>' + decodeURIComponent(obj.size) + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Цвет:</i>' + '<span>' + decodeURIComponent(obj.color) + '</span>' + '</a>' + '</div>' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Состав:</i>' + '<span>' + (obj.consistOf != 'undefined' ? decodeURIComponent(obj.consistOf) : "Нет данных") + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Материал: </i>' + '<span>' + (obj.material != 'undefined' ? decodeURIComponent(obj.material) : "Нет данных") + '</span>' + '</a>' + '</div>' + '</div>' + '<p class="a-general-goods__description_price_retail">Розничная цена: <span>' + decodeURIComponent(obj.price) + ' рублей</span></p>' + '<p class="a-general-goods__description_price_now"><i class="a-general-goods__description_price_now_upgraded">' + price + '</i> <span>руб.</span></p>' + '<span class="a-add-rate">' + (difference ? 'Ставка сделана! Невозможно сделать еще ставку, ождидайте завершения торгов!' : '') + '</span>' + '<div class="a-for-mobile-absolute">' + '<div class="a-general-goods__time_to_end">' + '<button class="a-general-goods__description_buy a-button-black">Покупаю</button>' + '<label class="a-type-to"> <input class="a-type-to-count" value="' + count + '" type="number" name="countOnBuy" min="1" max="' + obj.countInWarehouse + '" /> <span class="a-type-to-count-name">шт.</span></label>' + '</div>' + '<p class="a-general-goods__time_to_end__timer">До завершения -  <span class="a-times-frontend">00:' + (timer < 10 ? '0' + timer : timer) + '</span></p>' + '<p class="a-info-about-rates">Система повышает ставки автоматически на 30 рублей, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' + '<div class="a-general-goods__description_rates_button">' + '<button class="a-button-white">+ 50 руб.</button>' + '<button class="a-button-white">+ 100 руб.</button>' + '<button class="a-button-white">+ 250 руб.</button>' + '<button class="a-button-white">+ 500 руб.</button>' + '</div>' + '</div>' + '</div>' + '</div>';
+				return '<div class="a-general-goods a-animates-top-goods">' + '<div class="a-general-goods__image">' + '<span class="a-general-number__this_main">№' + id + '</span>' + '<div class="a-img-scale">' + '<img src="' + decodeURIComponent(obj.src) + '" alt="" class="a-image-to-zoom" data-number="' + id + '" />' + '</div>' + '</div>' + '<div class="a-general-goods__description">' + '<p class="a-general-goods__description_in-warehouse a-min-size-font">На складе: <span>' + decodeURIComponent(obj.countInWarehouse) + ' ед.</span></p>' + '<h2 class="a-general-goods__description_title">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</h2>' + '<div class="a-general-goods__description_description">' + decodeURIComponent(obj.description) + '</div>' + '<div class="a-general-goods__description_info">' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Размер:</i>' + '<span>' + decodeURIComponent(obj.size) + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Цвет:</i>' + '<span>' + decodeURIComponent(obj.color) + '</span>' + '</a>' + '</div>' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Состав:</i>' + '<span>' + (obj.consistOf != 'undefined' ? decodeURIComponent(obj.consistOf) : "Нет данных") + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Материал: </i>' + '<span>' + (obj.material != 'undefined' ? decodeURIComponent(obj.material) : "Нет данных") + '</span>' + '</a>' + '</div>' + '</div>' + '<p class="a-general-goods__description_price_retail">Розничная цена: <span>' + decodeURIComponent(obj.price) + ' гривен</span></p>' + '<p class="a-general-goods__description_price_now"><i class="a-general-goods__description_price_now_upgraded">' + price + '</i> <span>грн.</span></p>' + '<span class="a-add-rate">' + (difference ? 'Ставка сделана! Невозможно сделать еще ставку, ождидайте завершения торгов!' : '') + '</span>' + '<div class="a-for-mobile-absolute">' + '<div class="a-general-goods__time_to_end">' + '<button class="a-general-goods__description_buy a-button-black">Покупаю</button>' + '<label class="a-type-to"> <input class="a-type-to-count" value="' + count + '" type="number" name="countOnBuy" min="1" max="' + obj.countInWarehouse + '" /> <span class="a-type-to-count-name">шт.</span></label>' + '</div>' + '<p class="a-general-goods__time_to_end__timer">До завершения -  <span class="a-times-frontend">00:' + (timer < 10 ? '0' + timer : timer) + '</span></p>' + '<p class="a-info-about-rates">Система повышает ставки автоматически на 10 гривен, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' + '<div class="a-general-goods__description_rates_button">' + '<button class="a-button-white">+ 20 грн.</button>' + '<button class="a-button-white">+ 50 грн.</button>' + '<button class="a-button-white">+ 100 грн.</button>' + '<button class="a-button-white">+ 200 грн.</button>' + '</div>' + '</div>' + '</div>' + '</div>';
 			}
 		}, {
 			key: 'getAuctions',
 			value: function getAuctions(id, obj, className) {
 
-				return '<div class="a-else-goods__item ' + className + '" >' + '<div class="a-resizer-masonry">' + '<img src="' + decodeURIComponent(obj.src) + '" class="a-image-to-zoom" data-number="' + id + '"/>' + '</div>' + '<div class="a-else-goods__description">' + '<p class="a-number-goods"> №' + id + '<span></span>' + '</p>' + '<p class="a-else-goods-descroption">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</p>' + '<div class="a-else-goods__description_info">' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + decodeURIComponent(obj.consistOf) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Размер<span>' + decodeURIComponent(obj.size) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Цвет<span>' + decodeURIComponent(obj.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Ткань<span>' + decodeURIComponent(obj.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена<span>' + decodeURIComponent(obj.price) + ' руб.</span></p>' + ' <p class="a-new-price">Начальная ставка<span>' + decodeURIComponent(obj.auctionPrice) + ' руб.</span></p>' + '</div>' + '</div>';
+				return '<div class="a-else-goods__item ' + className + '" >' + '<div class="a-resizer-masonry">' + '<img src="' + decodeURIComponent(obj.src) + '" class="a-image-to-zoom" data-number="' + id + '"/>' + '</div>' + '<div class="a-else-goods__description">' + '<p class="a-number-goods"> №' + id + '<span></span>' + '</p>' + '<p class="a-else-goods-descroption">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</p>' + '<div class="a-else-goods__description_info">' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + decodeURIComponent(obj.consistOf) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Размер<span>' + decodeURIComponent(obj.size) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Цвет<span>' + decodeURIComponent(obj.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Ткань<span>' + decodeURIComponent(obj.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена<span>' + decodeURIComponent(obj.price) + ' грн.</span></p>' + ' <p class="a-new-price">Начальная ставка<span>' + decodeURIComponent(obj.auctionPrice) + ' грн.</span></p>' + '</div>' + '</div>';
 			}
 		}]);
 
@@ -9558,9 +9578,9 @@
 
 	exports.default = new Template();
 
-/***/ },
+/***/ }),
 /* 74 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9570,7 +9590,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9606,7 +9626,7 @@
 				try {
 					var bucket = JSON.parse(obj);
 					count.innerHTML = bucket.bucketCount ? bucket.bucketCount + " шт" : 0 + " шт";
-					price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " руб" : "Корзина <br /> пуста";
+					price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " грн" : "Корзина <br /> пуста";
 				} catch (e) {}
 			}
 		}]);
@@ -9616,9 +9636,9 @@
 
 	exports.default = new Bucket();
 
-/***/ },
+/***/ }),
 /* 75 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9628,7 +9648,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9696,7 +9716,7 @@
 			key: 'templates',
 			value: function templates(goods) {
 
-				var template = '<div class="a-all-goods-table__item">' + '<img src="' + decodeURIComponent(goods.src) + '" alt=""/>' + '<div class="a-all-goods-table__description">' + '<p class="a-all-goods-table__description_number">№ ' + this.Number + '</p>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Размер: </i> ' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Количество: </i> ' + decodeURIComponent(goods.countInWarehouse) + ' шт.</span>' + '</span>' + '<p class="a-all-goods-table__description_info">' + decodeURIComponent(goods.title).replace(/'/g, "") + '</p>' + '</div>' + '<div class="a-hidden-block">' + '<div class="a-hidden-block__img-outer">' + '<img src="' + decodeURIComponent(goods.src) + '" alt="" data-number="' + this.Number + '" class="a-image-to-zoom"/>' + '</div>' + '<div class="a-hidden-block__description">' + '<div class="a-hidden-block__description__outer a-table-all-goods-hidden">' + '<span class="a-hidden-block__description-link"> ' + '<i>Артикул: </i>' + '<span>' + decodeURIComponent(goods.art) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Размер </i>' + '<span>' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Количество: </i>' + '<span>' + decodeURIComponent(goods.countInWarehouse) + '</span>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + (goods.consistOf != 'undefined' ? decodeURIComponent(goods.consistOf) : "Нет данных") + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Цвет<span>' + decodeURIComponent(goods.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Материал<span>' + decodeURIComponent(goods.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена на сайте<span>' + decodeURIComponent(goods.price) + ' руб.</span></p>' + '<p class="a-new-price a-reds-color">Начальная ставка<span>' + decodeURIComponent(goods.auctionPrice) + ' руб.</span></p>' + ' </div>' + '</div>' + '</div>';
+				var template = '<div class="a-all-goods-table__item">' + '<img src="' + decodeURIComponent(goods.src) + '" alt=""/>' + '<div class="a-all-goods-table__description">' + '<p class="a-all-goods-table__description_number">№ ' + this.Number + '</p>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Размер: </i> ' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Количество: </i> ' + decodeURIComponent(goods.countInWarehouse) + ' шт.</span>' + '</span>' + '<p class="a-all-goods-table__description_info">' + decodeURIComponent(goods.title).replace(/'/g, "") + '</p>' + '</div>' + '<div class="a-hidden-block">' + '<div class="a-hidden-block__img-outer">' + '<img src="' + decodeURIComponent(goods.src) + '" alt="" data-number="' + this.Number + '" class="a-image-to-zoom"/>' + '</div>' + '<div class="a-hidden-block__description">' + '<div class="a-hidden-block__description__outer a-table-all-goods-hidden">' + '<span class="a-hidden-block__description-link"> ' + '<i>Артикул: </i>' + '<span>' + decodeURIComponent(goods.art) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Размер </i>' + '<span>' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Количество: </i>' + '<span>' + decodeURIComponent(goods.countInWarehouse) + '</span>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + (goods.consistOf != 'undefined' ? decodeURIComponent(goods.consistOf) : "Нет данных") + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Цвет<span>' + decodeURIComponent(goods.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Материал<span>' + decodeURIComponent(goods.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена на сайте<span>' + decodeURIComponent(goods.price) + ' грн.</span></p>' + '<p class="a-new-price a-reds-color">Начальная ставка<span>' + decodeURIComponent(goods.auctionPrice) + ' грн.</span></p>' + ' </div>' + '</div>' + '</div>';
 
 				return template;
 			}
@@ -9707,9 +9727,9 @@
 
 	exports.default = AsyncLoadAllGoods;
 
-/***/ },
+/***/ }),
 /* 76 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9719,7 +9739,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9839,9 +9859,9 @@
 
 	exports.default = Timer;
 
-/***/ },
+/***/ }),
 /* 77 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9851,7 +9871,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -9978,9 +9998,9 @@
 
 	exports.default = Privat;
 
-/***/ },
+/***/ }),
 /* 78 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -9990,7 +10010,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helper = __webpack_require__(16);
+	var _helper = __webpack_require__(14);
 
 	var _helper2 = _interopRequireDefault(_helper);
 
@@ -10043,5 +10063,5 @@
 
 	exports.default = LocalBase;
 
-/***/ }
+/***/ })
 /******/ ]);

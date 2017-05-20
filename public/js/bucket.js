@@ -17,7 +17,7 @@ class Bucket extends Helper{
 		try {
 			let bucket = JSON.parse(obj);
 			count.innerHTML = bucket.bucketCount ? bucket.bucketCount + " шт" : 0 + " шт";
-			price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " руб" : "Корзина <br /> пуста";
+			price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " грн" : "Корзина <br /> пуста";
 		} catch(e){
 
 		}
