@@ -60,23 +60,23 @@
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _rules = __webpack_require__(88);
+	var _rules = __webpack_require__(89);
 
 	var _rules2 = _interopRequireDefault(_rules);
 
-	var _auction_reload = __webpack_require__(89);
+	var _auction_reload = __webpack_require__(90);
 
 	var _auction_reload2 = _interopRequireDefault(_auction_reload);
 
-	var _user_controls = __webpack_require__(90);
+	var _user_controls = __webpack_require__(91);
 
 	var _user_controls2 = _interopRequireDefault(_user_controls);
 
-	var _order_details = __webpack_require__(91);
+	var _order_details = __webpack_require__(92);
 
 	var _order_details2 = _interopRequireDefault(_order_details);
 
-	var _auction_goods_remove = __webpack_require__(92);
+	var _auction_goods_remove = __webpack_require__(93);
 
 	var _auction_goods_remove2 = _interopRequireDefault(_auction_goods_remove);
 
@@ -9229,7 +9229,7 @@
 
 	var _flatpickr2 = _interopRequireDefault(_flatpickr);
 
-	var _flatpickrL10nRu = __webpack_require__(93);
+	var _flatpickrL10nRu = __webpack_require__(88);
 
 	var _flatpickrL10nRu2 = _interopRequireDefault(_flatpickrL10nRu);
 
@@ -10867,6 +10867,27 @@
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	/* Russian locals for flatpickr */
+	var Flatpickr = Flatpickr||{l10n: {}};
+
+	Flatpickr.l10n.weekdays = {
+		shorthand: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+		longhand: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
+	};
+
+	Flatpickr.l10n.months = {
+		shorthand: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+		longhand: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+	};
+	if (true) {
+		module.exports = Flatpickr.l10n;
+	}
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -10941,7 +10962,7 @@
 	exports.default = Rules;
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11027,7 +11048,7 @@
 	exports.default = AuctionReload;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11104,7 +11125,7 @@
 	exports.default = UserControls;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11210,7 +11231,7 @@
 	exports.default = OrdersDetails;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11291,27 +11312,6 @@
 	}(_helper2.default);
 
 	exports.default = RemoveGoodsAll;
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* Russian locals for flatpickr */
-	var Flatpickr = Flatpickr||{l10n: {}};
-
-	Flatpickr.l10n.weekdays = {
-		shorthand: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-		longhand: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
-	};
-
-	Flatpickr.l10n.months = {
-		shorthand: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-		longhand: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-	};
-	if (true) {
-		module.exports = Flatpickr.l10n;
-	}
-
 
 /***/ })
 /******/ ]);
