@@ -69,7 +69,7 @@ class Templates {
                 '</div>' +
                 '<div class="container-description-form">' +
                 '<p class="container-description-form__else_params">Начальная ставка</p>' +
-                '<span><input type="text" name="auctionPrice" value="100"><i> грн.</i></span>' +
+                '<span><input type="text" name="auctionPrice" value="50"><i> грн.</i></span>' +
                 '</div>' +
                 '</div>' +
                 '<div class="a-containet-flex-to-end-button">' +
