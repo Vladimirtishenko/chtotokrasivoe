@@ -128,7 +128,7 @@ module.exports.get = function(req, res, next) {
             var $; 
 
             try{
-                $ = cheerio.load(data.auction_info.text);
+                $ = cheerio.load(result.auction_info.text);
             } catch(e){
                 $ = null;
             }
@@ -138,10 +138,10 @@ module.exports.get = function(req, res, next) {
                 title: "Что-то красивое - Модные аукционы",
                 currency: result.currency,
                 date: result.date || "",
-                rules: data.rules,
-                auctions_info: data.auction_info,
+                rules: result.rules,
+                auctions_info: result.auction_info,
                 auctions_info_sliced: $ ? $.text().slice(0, 105) + "..." : "Нет никакой информации!!!", 
-                delivery_info: data.delivery_info,
+                delivery_info: result.delivery_info,
                 sessionUser: null,
                 timeDiff: timeDiff || 0
             });
