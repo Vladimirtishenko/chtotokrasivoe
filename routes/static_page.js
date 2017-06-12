@@ -133,10 +133,9 @@ module.exports.get = function(req, res, next) {
                 $ = null;
             }
 
-
             res.render(view, {
                 title: "Что-то красивое - Модные аукционы",
-                currency: result.currency,
+                currency: result.currency.currency,
                 date: result.date || "",
                 rules: result.rules,
                 auctions_info: result.auction_info,
