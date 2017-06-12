@@ -3,6 +3,9 @@ header.a-head
 		input(type="checkbox" id="a-menu-item-check" class="a-menu-item-check")
 		label(class="a-button-mobile-menu" for="a-menu-item-check")
 		.a-menu-item
+			span(class="span-link-item")
+				each c in currency
+					i(class="i-link-item")=parseFloat(c.rate).toFixed(2) + " " + c.mark
 			a(class="a-link-item" href="/") Аукционы
 			a(class="a-link-item" href="/goods") Все лоты
 			a(class="a-link-item button-modal" href="#" data-attr="rules") Правила
@@ -31,8 +34,7 @@ header.a-head
 						br 
 						| пуста
 					else 
-						| #{price}
-						| грн.
+						| #{price} $
 	.a-time-to-start(data-time=date)
 		p До начала аукциона осталось: 
 		i.a-replaced-time-container Дата загружается...

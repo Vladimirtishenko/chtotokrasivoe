@@ -30,6 +30,11 @@
 	align-items center
 	padding 0 20px 0 0
 
+.i-link-item
+	font-size 12px
+	font-family HelveticaRoman i
+	margin 0 10px
+
 .a-link-logo
 	& img
 		width 420px
@@ -77,7 +82,7 @@
 .a-side-backet__image
 	background-color darkPath
 	position relative
-	padding 50px 5px 8px
+	padding 50px 10px 8px
 	display block
 	&:before
 		content ""
@@ -139,6 +144,9 @@
 
 	.a-side-logo .a-auction-info-text
 		display none
+	
+	.a-head
+		background-position 50% 22%
 
 	.a-parth-to-center
 		width 100%
@@ -175,6 +183,9 @@
 		bottom initial
   
 @media screen and (max-width: 800px)
+	.a-head
+		background-position 50% 45%
+
 	.a-parth-to-center	
 		background #000
 		padding-right 70px
@@ -203,7 +214,7 @@
 		display none
 		
 	.a-side-backet__image
-		padding 50px 22px 8px
+		padding 50px 30px 8px
 		
 	.a-link-item
 		display block
@@ -216,9 +227,21 @@
 		font-size 16px
 		border-bottom 1px solid rgba(0,0,0,.2)
 		cursor pointer
+		
+	.span-link-item
+		display block
+		margin 1px 0px
+		background #000
+		padding 17px 10px
+		text-align left
+		color #fff
+		font-family HelveticaRoman
+		font-size 16px
+		border-bottom 1px solid rgba(0,0,0,.2)
+		cursor pointer
 
 	.a-menu-item
-		top -210px
+		top -255px
 		left 0
 		width inherit
 		text-align center

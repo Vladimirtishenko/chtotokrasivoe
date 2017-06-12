@@ -16,12 +16,13 @@ function UsersModule() {
 UsersModule.prototype = Object.create(parent.prototype);
 UsersModule.prototype.constructor = UsersModule;
 
-UsersModule.prototype.registerUser = function(email, pass, city, role, callback){
+UsersModule.prototype.registerUser = function(email, pass, city, country, role, callback){
     var userData = {
         uname: email.split('@')[0],
         email: email,
         pass: passHash.hash(pass),
-        city: city || 'Белгород',
+        city: city || 'Харьков',
+        country: country || 1,
         role: role || 'customer'
     };
     var entity = usertModel.createEntity(userData);

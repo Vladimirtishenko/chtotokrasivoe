@@ -26,8 +26,12 @@ html
 					label(for="#a-name") Email
 					input(type="password" id="a-pwd" name="pass" required)
 					label(for="#a-pwd") Пароль
-					input(type="text" id="a-pwd" name="city" required)
-					label(for="#a-pwd") Город
+					select(id="a-country" name="country" required)
+						option(value="1") Украина
+						option(value="2") Россия
+					label(for="#a-country") Страна
+					input(type="text" id="a-city" name="city" required)
+					label(for="#a-city") Город
 					.a-button-area-modal
 						button.a-button-white.__uppercase(type="submit") Зарегистрироваться
 						span.a-between или
@@ -51,6 +55,7 @@ html
 					h2.a-modal__item_title Оформить заказ
 					select(id="a-country" name="country" required)
 						option(value="" selected disabled) Выбрать страну
+						option(value="Украина") Украина
 						option(value="Россия") Россия
 						option(value="Белоруссия") Белоруссия
 						option(value="Казахстан") Казахстан
@@ -61,6 +66,8 @@ html
 					label(for="#a-fio") ФИО
 					select(id="a-delivery" name="delivery" required)
 						option(value="" selected disabled) Выбрать способ доставки
+						option(value="Укрпочта") Укрпочта
+						option(value="Нова пошта") Нова Пошта
 						option(value="КИТ") КИТ
 						option(value="ПЭК") ПЭК
 						option(value="Желдороэкспедиция") Желдороэкспедиция
@@ -71,7 +78,7 @@ html
 					label(for="#a-delivery") Способ доставки
 					input(type="text" id="a-warehouse" placeholder="Номер склада" name="warehouse" required)
 					label(for="#a-warehouse") Склад
-					input(type="text" id="a-number" name="number" placeholder="Пример: 79225551234" required)
+					input(type="text" id="a-number" name="number" placeholder="Код страны + Код оператора + Телефон" required)
 					label(for="#a-number") Номер телефона
 					.a-button-area-modal
 						button.a-button-white.__uppercase.a-data-order-send(type="submit") Отправить

@@ -1,5 +1,5 @@
 {
-  "name": "chechelyka",
+  "name": "chtotokrasivoe",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -43,6 +43,7 @@
     "precss": "^1.4.0",
     "pug": "^0.1.0",
     "pug-load": "^2.0.3",
+    "request": "^2.81.0",
     "rucksack-css": "^0.8.6",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.5.0",

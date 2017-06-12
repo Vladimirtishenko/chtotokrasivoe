@@ -133,7 +133,7 @@ socketFrontController.prototype.register_user = function(client, data){
     }.bind(this));
 
     //call registration
-    usersModule.registerUser(data.email, data.pass, data.city);
+    usersModule.registerUser(data.email, data.pass, data.city, data.country);
 }
 
 socketFrontController.prototype.getAuctions = function(client, data){

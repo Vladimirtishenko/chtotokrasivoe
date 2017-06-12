@@ -8756,7 +8756,7 @@
 	                formData = {};
 
 	            for (var i = 0; i < elems.length - 1; i++) {
-	                if (elems[i].type == "email" || elems[i].type == "password" || elems[i].type == "text") {
+	                if (elems[i].type == "email" || elems[i].type == "password" || elems[i].type == "text" || elems[i].tagName == "SELECT") {
 	                    if (!this.validate(elems[i], target)) return;
 
 	                    formData[elems[i].name] = elems[i].value;
@@ -8789,8 +8789,11 @@
 	            var regExp = {
 	                email: /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,5}$/,
 	                pass: /[a-zA-Z0-9!@#\$%&\^\*\(\)_\+=]/,
-	                city: /[а-яА-Я]/
+	                city: /[а-яА-Яa-zA-Z]/,
+	                country: /\d/
 	            };
+
+	            console.log(regExp[el.name]);
 
 	            if (!regExp[el.name].test(el.value)) {
 	                this.errorValidate('Проверьте правильность полей!', form);
@@ -8963,7 +8966,7 @@
 
 				var win = pretendents && Object.keys(pretendents).length || 0;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Купили <span>' + count + ' ед.</span> по <span> ' + price + ' грн/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : this.chatTemplateUsers(pretendents)) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Купили <span>' + count + ' ед.</span> по <span> ' + price + ' $/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : this.chatTemplateUsers(pretendents)) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -8975,7 +8978,7 @@
 
 				var win = Object.keys(pretendents).length;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Сделана ставка <span>' + count + 'ед.</span> по<span> ' + price + ' грн/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : win < 10 ? this.chatTemplateUsers(pretendents) : 'Количество желающих: ' + win) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Сделана ставка <span>' + count + 'ед.</span> по<span> ' + price + ' $/ед.</span></p>' + ' <p class="a-block-with-proposal__user">' + (win == 0 ? "Нет победителей" : win < 10 ? this.chatTemplateUsers(pretendents) : 'Количество желающих: ' + win) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -8986,7 +8989,7 @@
 
 				var win = Object.keys(pretendents).length;
 
-				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Готовы купить <span>' + count + ' ед.</span> по<span> ' + price + ' грн/ед</span></p>' + ' <p class="a-block-with-proposal__user">' + "Участвуют: <br />" + '</p>' + '<p class="a-block-with-proposal__user">' + this.chatTemplateUsers(pretendents) + '</p>' + '</div>';
+				var template = '<div class="a-block-with-proposal">' + '<p class="a-block-with-proposal__buy_now">Готовы купить <span>' + count + ' ед.</span> по<span> ' + price + ' $/ед</span></p>' + ' <p class="a-block-with-proposal__user">' + "Участвуют: <br />" + '</p>' + '<p class="a-block-with-proposal__user">' + this.chatTemplateUsers(pretendents) + '</p>' + '</div>';
 
 				return template;
 			}
@@ -9447,12 +9450,10 @@
 
 				var target = event && event.target || null;
 
-				if (target.tagName != 'BUTTON') return;
+				var buttonPrice = target.tagName == 'BUTTON' ? target.querySelector('.a-top-number-price').innerHTML : target.innerHTML;
 
-				var buttonPriceArray = target.innerText.match(/\d+/);
-
-				if (buttonPriceArray instanceof Array && parseInt(buttonPriceArray[0]) >= 50 && parseInt(buttonPriceArray[0]) < 502) {
-					$app.socket.upPrice('upPrice', { auction_id: this.auctionId, price: parseInt(buttonPriceArray[0]) }, this.upPrice.bind(this));
+				if (parseInt(buttonPrice) >= 2 && parseInt(buttonPrice) <= 5) {
+					$app.socket.upPrice('upPrice', { auction_id: this.auctionId, price: parseInt(buttonPrice) }, this.upPrice.bind(this));
 				}
 			}
 		}, {
@@ -9563,13 +9564,13 @@
 		_createClass(Template, [{
 			key: 'getCurrentAuction',
 			value: function getCurrentAuction(id, obj, price, timer, count, difference) {
-				return '<div class="a-general-goods a-animates-top-goods">' + '<div class="a-general-goods__image">' + '<span class="a-general-number__this_main">№' + id + '</span>' + '<div class="a-img-scale">' + '<img src="' + decodeURIComponent(obj.src) + '" alt="" class="a-image-to-zoom" data-number="' + id + '" />' + '</div>' + '</div>' + '<div class="a-general-goods__description">' + '<p class="a-general-goods__description_in-warehouse a-min-size-font">На складе: <span>' + decodeURIComponent(obj.countInWarehouse) + ' ед.</span></p>' + '<h2 class="a-general-goods__description_title">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</h2>' + '<div class="a-general-goods__description_description">' + decodeURIComponent(obj.description) + '</div>' + '<div class="a-general-goods__description_info">' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Размер:</i>' + '<span>' + decodeURIComponent(obj.size) + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Цвет:</i>' + '<span>' + decodeURIComponent(obj.color) + '</span>' + '</a>' + '</div>' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Состав:</i>' + '<span>' + (obj.consistOf != 'undefined' ? decodeURIComponent(obj.consistOf) : "Нет данных") + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Материал: </i>' + '<span>' + (obj.material != 'undefined' ? decodeURIComponent(obj.material) : "Нет данных") + '</span>' + '</a>' + '</div>' + '</div>' + '<p class="a-general-goods__description_price_retail">Розничная цена: <span>' + decodeURIComponent(obj.price) + ' гривен</span></p>' + '<p class="a-general-goods__description_price_now"><i class="a-general-goods__description_price_now_upgraded">' + price + '</i> <span>грн.</span></p>' + '<span class="a-add-rate">' + (difference ? 'Ставка сделана! Невозможно сделать еще ставку, ождидайте завершения торгов!' : '') + '</span>' + '<div class="a-for-mobile-absolute">' + '<div class="a-general-goods__time_to_end">' + '<button class="a-general-goods__description_buy a-button-black">Покупаю</button>' + '<label class="a-type-to"> <input class="a-type-to-count" value="' + count + '" type="number" name="countOnBuy" min="1" max="' + obj.countInWarehouse + '" /> <span class="a-type-to-count-name">шт.</span></label>' + '</div>' + '<p class="a-general-goods__time_to_end__timer">До завершения -  <span class="a-times-frontend">00:' + (timer < 10 ? '0' + timer : timer) + '</span></p>' + '<p class="a-info-about-rates">Система повышает ставки автоматически на 10 гривен, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' + '<div class="a-general-goods__description_rates_button">' + '<button class="a-button-white">+ 20 грн.</button>' + '<button class="a-button-white">+ 50 грн.</button>' + '<button class="a-button-white">+ 100 грн.</button>' + '<button class="a-button-white">+ 200 грн.</button>' + '</div>' + '</div>' + '</div>' + '</div>';
+				return '<div class="a-general-goods a-animates-top-goods">' + '<div class="a-general-goods__image">' + '<span class="a-general-number__this_main">№' + id + '</span>' + '<div class="a-img-scale">' + '<img src="' + decodeURIComponent(obj.src) + '" alt="" class="a-image-to-zoom" data-number="' + id + '" />' + '</div>' + '</div>' + '<div class="a-general-goods__description">' + '<p class="a-general-goods__description_in-warehouse a-min-size-font">На складе: <span>' + decodeURIComponent(obj.countInWarehouse) + ' ед.</span></p>' + '<h2 class="a-general-goods__description_title">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</h2>' + '<div class="a-general-goods__description_description">' + decodeURIComponent(obj.description) + '</div>' + '<div class="a-general-goods__description_info">' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Размер:</i>' + '<span>' + decodeURIComponent(obj.size) + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Цвет:</i>' + '<span>' + decodeURIComponent(obj.color) + '</span>' + '</a>' + '</div>' + '<div class="a-general-goods__description_info_part">' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Состав:</i>' + '<span>' + (obj.consistOf != 'undefined' ? decodeURIComponent(obj.consistOf) : "Нет данных") + '</span>' + '</a>' + '<a href="" class="a-general-goods__description_info_part-link">' + '<i>Материал: </i>' + '<span>' + (obj.material != 'undefined' ? decodeURIComponent(obj.material) : "Нет данных") + '</span>' + '</a>' + '</div>' + '</div>' + '<p class="a-general-goods__description_price_retail">Розничная цена: <span>' + decodeURIComponent(obj.price) + ' $</span></p>' + '<p class="a-general-goods__description_price_now"><i class="a-general-goods__description_price_now_upgraded">' + price + '</i> <span>$</span></p>' + '<span class="a-add-rate">' + (difference ? 'Ставка сделана! Невозможно сделать еще ставку, ождидайте завершения торгов!' : '') + '</span>' + '<div class="a-for-mobile-absolute">' + '<div class="a-general-goods__time_to_end">' + '<button class="a-general-goods__description_buy a-button-black">Покупаю</button>' + '<label class="a-type-to"> <input class="a-type-to-count" value="' + count + '" type="number" name="countOnBuy" min="1" max="' + obj.countInWarehouse + '" /> <span class="a-type-to-count-name">шт.</span></label>' + '</div>' + '<p class="a-general-goods__time_to_end__timer">До завершения -  <span class="a-times-frontend">00:' + (timer < 10 ? '0' + timer : timer) + '</span></p>' + '<p class="a-info-about-rates">Система повышает ставки автоматически на 1 $, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' + '<div class="a-general-goods__description_rates_button">' + '<button class="a-button-white">+ <i class="a-top-number-price">2</i> $</button>' + '<button class="a-button-white">+ <i class="a-top-number-price">3</i> $</button>' + '<button class="a-button-white">+ <i class="a-top-number-price">4</i> $</button>' + '<button class="a-button-white">+ <i class="a-top-number-price">5</i> $</button>' + '</div>' + '</div>' + '</div>' + '</div>';
 			}
 		}, {
 			key: 'getAuctions',
 			value: function getAuctions(id, obj, className) {
 
-				return '<div class="a-else-goods__item ' + className + '" >' + '<div class="a-resizer-masonry">' + '<img src="' + decodeURIComponent(obj.src) + '" class="a-image-to-zoom" data-number="' + id + '"/>' + '</div>' + '<div class="a-else-goods__description">' + '<p class="a-number-goods"> №' + id + '<span></span>' + '</p>' + '<p class="a-else-goods-descroption">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</p>' + '<div class="a-else-goods__description_info">' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + decodeURIComponent(obj.consistOf) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Размер<span>' + decodeURIComponent(obj.size) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Цвет<span>' + decodeURIComponent(obj.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Ткань<span>' + decodeURIComponent(obj.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена<span>' + decodeURIComponent(obj.price) + ' грн.</span></p>' + ' <p class="a-new-price">Начальная ставка<span>' + decodeURIComponent(obj.auctionPrice) + ' грн.</span></p>' + '</div>' + '</div>';
+				return '<div class="a-else-goods__item ' + className + '" >' + '<div class="a-resizer-masonry">' + '<img src="' + decodeURIComponent(obj.src) + '" class="a-image-to-zoom" data-number="' + id + '"/>' + '</div>' + '<div class="a-else-goods__description">' + '<p class="a-number-goods"> №' + id + '<span></span>' + '</p>' + '<p class="a-else-goods-descroption">' + decodeURIComponent(obj.title).replace(/'/g, '') + '</p>' + '<div class="a-else-goods__description_info">' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + decodeURIComponent(obj.consistOf) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Размер<span>' + decodeURIComponent(obj.size) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Цвет<span>' + decodeURIComponent(obj.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link"> ' + '<i>Ткань<span>' + decodeURIComponent(obj.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена<span>' + decodeURIComponent(obj.price) + ' $</span></p>' + ' <p class="a-new-price">Начальная ставка<span>' + decodeURIComponent(obj.auctionPrice) + ' $</span></p>' + '</div>' + '</div>';
 			}
 		}]);
 
@@ -9626,7 +9627,7 @@
 				try {
 					var bucket = JSON.parse(obj);
 					count.innerHTML = bucket.bucketCount ? bucket.bucketCount + " шт" : 0 + " шт";
-					price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " грн" : "Корзина <br /> пуста";
+					price.innerHTML = bucket.bucketPrice ? bucket.bucketPrice + " $" : "Корзина <br /> пуста";
 				} catch (e) {}
 			}
 		}]);
@@ -9716,7 +9717,7 @@
 			key: 'templates',
 			value: function templates(goods) {
 
-				var template = '<div class="a-all-goods-table__item">' + '<img src="' + decodeURIComponent(goods.src) + '" alt=""/>' + '<div class="a-all-goods-table__description">' + '<p class="a-all-goods-table__description_number">№ ' + this.Number + '</p>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Размер: </i> ' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Количество: </i> ' + decodeURIComponent(goods.countInWarehouse) + ' шт.</span>' + '</span>' + '<p class="a-all-goods-table__description_info">' + decodeURIComponent(goods.title).replace(/'/g, "") + '</p>' + '</div>' + '<div class="a-hidden-block">' + '<div class="a-hidden-block__img-outer">' + '<img src="' + decodeURIComponent(goods.src) + '" alt="" data-number="' + this.Number + '" class="a-image-to-zoom"/>' + '</div>' + '<div class="a-hidden-block__description">' + '<div class="a-hidden-block__description__outer a-table-all-goods-hidden">' + '<span class="a-hidden-block__description-link"> ' + '<i>Артикул: </i>' + '<span>' + decodeURIComponent(goods.art) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Размер </i>' + '<span>' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Количество: </i>' + '<span>' + decodeURIComponent(goods.countInWarehouse) + '</span>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + (goods.consistOf != 'undefined' ? decodeURIComponent(goods.consistOf) : "Нет данных") + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Цвет<span>' + decodeURIComponent(goods.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Материал<span>' + decodeURIComponent(goods.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена на сайте<span>' + decodeURIComponent(goods.price) + ' грн.</span></p>' + '<p class="a-new-price a-reds-color">Начальная ставка<span>' + decodeURIComponent(goods.auctionPrice) + ' грн.</span></p>' + ' </div>' + '</div>' + '</div>';
+				var template = '<div class="a-all-goods-table__item">' + '<img src="' + decodeURIComponent(goods.src) + '" alt=""/>' + '<div class="a-all-goods-table__description">' + '<p class="a-all-goods-table__description_number">№ ' + this.Number + '</p>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Размер: </i> ' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<span><i>Количество: </i> ' + decodeURIComponent(goods.countInWarehouse) + ' шт.</span>' + '</span>' + '<p class="a-all-goods-table__description_info">' + decodeURIComponent(goods.title).replace(/'/g, "") + '</p>' + '</div>' + '<div class="a-hidden-block">' + '<div class="a-hidden-block__img-outer">' + '<img src="' + decodeURIComponent(goods.src) + '" alt="" data-number="' + this.Number + '" class="a-image-to-zoom"/>' + '</div>' + '<div class="a-hidden-block__description">' + '<div class="a-hidden-block__description__outer a-table-all-goods-hidden">' + '<span class="a-hidden-block__description-link"> ' + '<i>Артикул: </i>' + '<span>' + decodeURIComponent(goods.art) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Размер </i>' + '<span>' + decodeURIComponent(goods.size) + '</span>' + '</span>' + '<span class="a-hidden-block__description-link"> ' + '<i>Количество: </i>' + '<span>' + decodeURIComponent(goods.countInWarehouse) + '</span>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Состав<span>' + (goods.consistOf != 'undefined' ? decodeURIComponent(goods.consistOf) : "Нет данных") + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Цвет<span>' + decodeURIComponent(goods.color) + '</span></i>' + '</span>' + '<span class="a-else-goods__description_info-link">' + '<i>Материал<span>' + decodeURIComponent(goods.material).replace(/,|;/g, '<br />') + '</span></i>' + '</span>' + '</div>' + '<p class="a-old-price">Розничная цена на сайте<span>' + decodeURIComponent(goods.price) + ' $</span></p>' + '<p class="a-new-price a-reds-color">Начальная ставка<span>' + decodeURIComponent(goods.auctionPrice) + ' $</span></p>' + ' </div>' + '</div>' + '</div>';
 
 				return template;
 			}

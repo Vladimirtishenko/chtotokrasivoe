@@ -55,7 +55,7 @@ class ChangeStatus extends Helper {
 			let commonPrice = json.priceUpdated,
 				priceCommon = document.querySelector('.a-common-price-'+json._id);
 
-			priceCommon.innerHTML = commonPrice + "грн."
+			priceCommon.innerHTML = commonPrice + "$"
 			parent.parentNode.removeChild(parent);
 
 		} catch(e){

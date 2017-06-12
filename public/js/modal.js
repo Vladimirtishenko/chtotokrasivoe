@@ -91,7 +91,7 @@ class Modal extends Helper {
              formData = {};
 
         for(var i = 0; i < elems.length - 1; i++){
-            if(elems[i].type == "email" || elems[i].type == "password" || elems[i].type == "text"){
+            if(elems[i].type == "email" || elems[i].type == "password" || elems[i].type == "text" || elems[i].tagName == "SELECT"){
                 if(!this.validate(elems[i], target)) return;
                     
                 formData[elems[i].name] = elems[i].value;
@@ -129,8 +129,11 @@ class Modal extends Helper {
         let regExp = {
             email: /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,5}$/,
             pass: /[a-zA-Z0-9!@#\$%&\^\*\(\)_\+=]/,
-            city: /[а-яА-Я]/
+            city: /[а-яА-Яa-zA-Z]/,
+            country: /\d/
         }
+
+        console.log(regExp[el.name]);
 
         if(!regExp[el.name].test(el.value)){
             this.errorValidate('Проверьте правильность полей!', form);

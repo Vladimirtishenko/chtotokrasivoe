@@ -200,12 +200,10 @@ class AsyncLoad extends Helper {
 
 		let target = event && event.target || null;
 
-		if(target.tagName != 'BUTTON') return;
+		let buttonPrice = target.tagName == 'BUTTON' ? target.querySelector('.a-top-number-price').innerHTML : target.innerHTML;
 
-		let buttonPriceArray = target.innerText.match(/\d+/);
-
-		if(buttonPriceArray instanceof Array && parseInt(buttonPriceArray[0]) >= 50 && parseInt(buttonPriceArray[0]) < 502) {
-			$app.socket.upPrice('upPrice', {auction_id: this.auctionId, price: parseInt(buttonPriceArray[0])}, this.upPrice.bind(this));
+		if(parseInt(buttonPrice) >= 2 && parseInt(buttonPrice) <= 5) {
+			$app.socket.upPrice('upPrice', {auction_id: this.auctionId, price: parseInt(buttonPrice)}, this.upPrice.bind(this));
 		}
 
 	}

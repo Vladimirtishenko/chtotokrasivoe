@@ -65,11 +65,11 @@ class Templates {
                 '<div class="che-input-with-checkbox__main">'+sizeEach(size)+'</div>' +
                 '</div>' +
                 '<div class="container-description-form">' +
-                '<p class="container-description-form__else_params">Цена розничная</p><span>' + price + ' грн.</span>' +
+                '<p class="container-description-form__else_params">Цена розничная</p><span>' + price + ' $</span>' +
                 '</div>' +
                 '<div class="container-description-form">' +
                 '<p class="container-description-form__else_params">Начальная ставка</p>' +
-                '<span><input type="text" name="auctionPrice" value="50"><i> грн.</i></span>' +
+                '<span><input type="text" name="auctionPrice" value="3"><i> $</i></span>' +
                 '</div>' +
                 '</div>' +
                 '<div class="a-containet-flex-to-end-button">' +
@@ -237,7 +237,7 @@ class Templates {
                 				'<div class="a-privat-table_bought__number">' +
                 					'<p>'+
                                         '<span>Заказ </span>№ ' +data.orderNumber+ '<span> от </span> '+constructorDate+' <a class="che-print-image" target="_blank" href="/order/print/'+data._id+'">Другие действия</a></p><span class="a-status-wrapper">Статус: <i class="a-status-'+data.status+'">'+statusText[data.status]+'</i></span>' +
-                					'<p>На сумму: <span class="a-common-price-'+data._id+'">'+data.priceCommon+' грн.</span></p>' +
+                					'<p>На сумму: <span class="a-common-price-'+data._id+'">'+data.priceCommon+' $</span></p>' +
                 				'</div>' +
                                 '<input type="checkbox" class="a-show-or-hide-order" value="Открыть" />' +
                 				'<div class="a-orders-description a-orders-hide-block"><div class="a-privat-table a-privat-table__bought a-privat-table__orders">' +

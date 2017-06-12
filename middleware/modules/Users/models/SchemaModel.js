@@ -7,6 +7,7 @@ var schema = mongoose.Schema({
     date: {type: Date, default: Date.now},
     email: {type: String, unique: true},
     city: String,
+    country: {type: Number, default: 1},
     role: {type: String, default: 'customer'},
     pass: String
 }, { collection: 'users' });

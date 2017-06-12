@@ -39,14 +39,16 @@ block content
 											span #{item.count} 
 												| шт.
 										p Стоимость
-											span #{item.finalePrice * item.count}
-												| грн.
-									input(type="hidden" data-count=item.count 	data-price=item.finalePrice * item.count data-title=title data-size=size data-image=img data-color=color data-art=art)
+											span #{item.finalePrice * item.count} 
+												| $
+											i(class="a-perhaps-price") ~ #{(item.finalePrice * item.count) * curencyUser}  #{currencyValue}
+									input(type="hidden" data-count=item.count data-price=item.finalePrice * item.count data-title=title data-size=size data-image=img data-color=color data-art=art)
 						.a-privat-price-to-change
 							.a-privat-table__all-price
 								p.a-privat-table__all-price_text Общая стоимость:
 								p.a-privat-table__all-price_price #{allcount} 
-									| грн.
+									| $
+									i(class="a-perhaps-price a-perhaps-price-privat") ~ #{allcount * curencyUser}  #{currencyValue}
 							.a-privat-table__all-price
 								button.a-button-black.a-button-to-submits-order(data-attr="order")
 									| Оформить заказ
@@ -66,7 +68,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{orderBase.priceCommon} 
-									| грн.
+									| $
 						-var ob = orderBase.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -91,7 +93,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| грн.
+											| $
 				
 
 			- if(ordersPaid)
@@ -108,7 +110,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemP.priceCommon} 
-									| грн.
+									| $
 						-var ob = itemP.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -133,7 +135,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| грн.
+											| $
 
 			- if(ordersProcessed)
 				h1.a-head-font-left-side Обработанные заказы
@@ -149,7 +151,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| грн.
+									| $
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -174,7 +176,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| грн.
+											| $
 
 			
 			- if(ordersSuccess)
@@ -191,7 +193,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| грн.
+									| $
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -216,7 +218,7 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| грн.
+											| $
 
 
 			- if(ordersCancel)
@@ -233,7 +235,7 @@ block content
 								| #{date} 
 							p На сумму: 
 								span #{itemC.priceCommon} 
-									| грн.
+									| $
 						-var ob = itemC.goods;
 						-for(var prop in ob)
 							.a-privat-table.a-privat-table__bought
@@ -258,5 +260,5 @@ block content
 											| шт.
 									p Стоимость
 										span #{ob[prop].price}
-											| грн.
+											| $
 		include footer.jade
