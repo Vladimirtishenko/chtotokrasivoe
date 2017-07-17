@@ -42,11 +42,11 @@ class Template {
 				        '<label class="a-type-to"> <input class="a-type-to-count" value="'+count+'" type="number" name="countOnBuy" min="1" max="'+obj.countInWarehouse+'" /> <span class="a-type-to-count-name">шт.</span></label>' +
 				      '</div>' +
 				      '<p class="a-general-goods__time_to_end__timer">До завершения -  <span class="a-times-frontend">00:'+(timer < 10 ? '0' + timer : timer)+'</span></p>' +
-				      '<p class="a-info-about-rates">Система повышает ставки автоматически на 1 $, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' +
+				      '<p class="a-info-about-rates">Система повышает ставки автоматически на 0.5 $, если хотите повысить ставку сразу нажмите на одну из кнопок ниже!</p>' +
 				      '<div class="a-general-goods__description_rates_button">' +
+				        '<button class="a-button-white">+ <i class="a-top-number-price">1</i> $</button>' +
 				        '<button class="a-button-white">+ <i class="a-top-number-price">2</i> $</button>' +
 				        '<button class="a-button-white">+ <i class="a-top-number-price">3</i> $</button>' +
-				        '<button class="a-button-white">+ <i class="a-top-number-price">4</i> $</button>' +
 				        '<button class="a-button-white">+ <i class="a-top-number-price">5</i> $</button>' +
 				      '</div>' +
 				    '</div>' +
